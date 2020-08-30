@@ -16,6 +16,8 @@ import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ProjectProgressComponent } from './project-progress/project-progress.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     LoginAdminComponent,
     FormEditalComponent,
     MenuAdminComponent,
-    ProjectProgressComponent
+    ProjectProgressComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
-    MatStepperModule
+    MatStepperModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
