@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-login-admin',
   templateUrl: './login-admin.component.html',
@@ -7,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginAdminComponent implements OnInit {
 
-  constructor() { }
+  hide = true;
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
+    
   }
 
 }

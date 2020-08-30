@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginAdminComponent } from './login-admin.component';
+import {MatInputmodule} from '@angular/material/input';
 
 describe('LoginAdminComponent', () => {
   let component: LoginAdminComponent;
