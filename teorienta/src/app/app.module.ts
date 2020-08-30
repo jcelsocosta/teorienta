@@ -8,10 +8,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { FormEditalComponent } from './form-edital/form-edital.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginAdminComponent
+    LoginAdminComponent,
+    FormEditalComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +27,10 @@ import {MatButtonModule} from '@angular/material/button';
     MatSliderModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
