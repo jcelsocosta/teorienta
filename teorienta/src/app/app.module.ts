@@ -18,7 +18,8 @@ import { ProjectProgressComponent } from './project-progress/project-progress.co
 import {MatStepperModule} from '@angular/material/stepper';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import { FeedEditalComponent } from './feed-edital/feed-edital.component';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     FormEditalComponent,
     MenuAdminComponent,
     ProjectProgressComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    FeedEditalComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatNativeDateModule,
     MatGridListModule,
     MatStepperModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
