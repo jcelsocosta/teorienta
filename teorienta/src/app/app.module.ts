@@ -15,6 +15,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ProjectProgressComponent } from './project-progress/project-progress.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ProjectProgressComponent } from './project-progress/project-progress.co
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatGridListModule
+    MatGridListModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
