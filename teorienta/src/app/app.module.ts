@@ -12,13 +12,17 @@ import { FormEditalComponent } from './form-edital/form-edital.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { MenuAdminComponent } from './menu-admin/menu-admin.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ProjectProgressComponent } from './project-progress/project-progress.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginAdminComponent,
-    FormEditalComponent
+    FormEditalComponent,
+    MenuAdminComponent,
+    ProjectProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatButtonModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
