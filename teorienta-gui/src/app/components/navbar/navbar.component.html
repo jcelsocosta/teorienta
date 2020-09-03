@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #f4a261;">
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+    <ul class="navbar-nav mr-auto">
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item" ><a
+          [routerLink]="['/']" style="color: #FFF;">Te orienta!</a></li>
+    </ul>
+  </div>
+
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+    <ul class="navbar-nav ml-auto">
+      <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link"
+          [routerLink]="['/dashboard']">Dashboard</a></li>
+      <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link"
+          [routerLink]="['/profile']">Profile</a></li>
+      <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link"
+          [routerLink]="['/login']">Login</a></li>
+      <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link"
+          [routerLink]="['/register']">Cadastrar</a></li>
+      <li *ngIf="authService.loggedIn()" class="nav-item"><a class="nav-link" (click)="onLogoutClick()" href="#">Logout</a></li>
+    </ul>
+  </div>
+</nav>
