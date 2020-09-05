@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken')
 const config = require('../../infrastructure/database/mongo/config/config')
 
 const User = require('../../infrastructure/database/mongo/models/user')
-const user = require('../../infrastructure/database/mongo/models/user')
 
 //Register 
 router.post('/register', (req, res, next) => {
