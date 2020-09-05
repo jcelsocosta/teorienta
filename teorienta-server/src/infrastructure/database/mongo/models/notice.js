@@ -19,8 +19,9 @@ const NoticeSchema = mongoose.Schema({
 
 const Notice = module.exports = mongoose.model('Notice', NoticeSchema)
 
-module.exports.getNotices = function(callback) {
-
+module.exports.getNotices = async function(callback) {
+    const notices = await Notice.find({}, callback)
+    return notices
 }
 
 module.exports.addNotice = function(newNotice, callback) {

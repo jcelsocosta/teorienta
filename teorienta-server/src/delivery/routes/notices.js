@@ -22,4 +22,15 @@ router.post("/addNotice", (req, res, next) => {
     })
 })
 
+router.post("/notices", (req, res, next) => {
+
+    Notice.getNotices((err, notices) => {
+        if (err) {
+            res.json({ success: false, message: 'Failed to get the notices' })
+        } else {
+            res.json({ success: true, message: 'Notices obtained succssfully', notices })
+        }
+    })
+})
+
 module.exports = router
