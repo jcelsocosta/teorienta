@@ -10,7 +10,7 @@ const { Server } = require('../config/config')
 const PORT = Server.PORT
 
 const users = require('../../delivery/routes/users')
-const notices = require('../../delivery/routes/notices')
+const announcements = require('../../delivery/routes/announcements')
 
 const databaseServer = require('../../infrastructure/database/mongo/cmd/server')
 
@@ -34,8 +34,8 @@ function server() {
     // Set users routes
     app.use('/users', users)
 
-    // Set notices routes
-    app.use('/notices', notices)
+    // Set announcements routes
+    app.use('/announcements', announcements)
 
     // Set static folder
     app.use(express.static(path.join(__dirname, 'public')))
