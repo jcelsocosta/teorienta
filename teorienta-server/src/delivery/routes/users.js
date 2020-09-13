@@ -9,10 +9,11 @@ const User = require('../../infrastructure/database/mongo/models/user')
 //Register 
 router.post('/register', (req, res, next) => {
     let newUser = new User({
-        name: req.body.name,
-        email: req.body.email,
-        username: req.body.username,
-        password: req.body.password
+        name: req.body.user.name,
+        email: req.body.user.email,
+        username: req.body.user.username,
+        password: req.body.user.password,
+        userType: req.body.user.userType
     })
 
     User.addUser(newUser, (err, user) => {
@@ -49,7 +50,8 @@ router.post('/authenticate', (req, res, next) => {
                         id: user._id,
                         name: user.name,
                         username: user.username,
-                        email: user.email
+                        email: user.email,
+                        userType: user.userType
                     }
                 })
             } else {

@@ -17,12 +17,24 @@
                     <label>Email</label>
                     <input type="text" [(ngModel)]="email" name="email" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label>Senha</label>
+                <label>Senha</label>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-unlock"></i></span>
+                    </div>
                     <input type="password" [(ngModel)]="password" name="password" class="form-control">
                 </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Serei: </span>
+                    </div>
+                    <select class="form-control" [(ngModel)]="userTypeSelected" name="userTypeSelected">
+                        <option *ngFor="let userType of userTypes; index as i;" value={{userType.id}}>
+                            {{userType.type}}</option>
+                    </select>
+                </div>
             </form>
-            <button class="btn btn-primary">Cadastrar</button>
+            <button class="btn btn-primary" (click)="onRegisterSubmit()">Cadastrar</button>
         </div>
     </div>
 </div>

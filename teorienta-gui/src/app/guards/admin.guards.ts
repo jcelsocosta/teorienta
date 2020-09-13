@@ -4,22 +4,15 @@ import { AuthService } from '../services/auth.service'
 import { FlashMessagesService } from 'angular2-flash-messages'
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
     constructor(
         private authService: AuthService,
         private router: Router, 
         private flashMessage: FlashMessagesService) {
+
     }
 
     canActivate() {
-        if (this.authService.loggedIn()) {
-            return true
-        }
-        this.router.navigate(['/login'])
-        return false
-    }
-
-    canActivateAdmin() {
         if (this.authService.isUserAdmin()) {
             return true
         }

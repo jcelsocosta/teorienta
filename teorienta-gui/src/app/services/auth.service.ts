@@ -61,6 +61,10 @@ export class AuthService {
     this.authToken = token
   }
 
+  isUserAdmin() {
+    return this.user.userType == 1
+  }
+
   loggedIn() {
     const helper = new JwtHelperService()
     return !helper.isTokenExpired(this.authToken)

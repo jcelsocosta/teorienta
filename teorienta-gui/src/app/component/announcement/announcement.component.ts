@@ -21,7 +21,7 @@ export class AnnouncementComponent implements OnInit {
   }
 
   async updateAnnouncement() {
-    //console.log(this.title)
+    
   }
 
   async getAnnouncementsFromServer() {
