@@ -10,6 +10,7 @@ const { Server } = require('../config/config')
 const PORT = Server.PORT
 
 const users = require('../../delivery/routes/users')
+const announcements = require('../../delivery/routes/announcements')
 
 const databaseServer = require('../../infrastructure/database/mongo/cmd/server')
 
@@ -33,13 +34,17 @@ function server() {
     // Set users routes
     app.use('/users', users)
 
+    // Set announcements routes
+    app.use('/announcements', announcements)
+
     // Set static folder
     app.use(express.static(path.join(__dirname, 'public')))
 
     // Status route
     app.get("/status", (req, res) => {
-        res.send('Server is online.')
+        res.send('Server is online.');
     })
+    
 
     // Start server
     app.listen(PORT, () => console.log("Server is online on port " + PORT))

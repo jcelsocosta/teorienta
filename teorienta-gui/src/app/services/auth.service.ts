@@ -1,32 +1,52 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http'
-import { tokenNotExpired } from 'angular2-jwt'
+import axios from 'axios'
+import { JwtHelperService } from '@auth0/angular-jwt'
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
   authToken: any
   user: any
 
-  constructor(private http: Http) { }
+  constructor() { }
 
-  registerUser(user) {
-    let headers = new Headers()
-    headers.append('Content-Type', 'application/json')
-    return this.http.post('http://localhost:3000/users/register', user, { headers: headers })
+  async registerUser(user) {
+    return await axios({
+      method: "POST",
+      url: 'http://localhost:3000/users/register',
+      data: {
+        user
+      },
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
   }
 
-  authenticateUser(user) {
-    let headers = new Headers()
-    headers.append('Content-Type', 'application/json')
-    return this.http.post('http://localhost:3000/users/authenticate', user, { headers: headers })
+  async authenticateUser(user) {
+    return await axios({
+      method: "POST",
+      url: 'http://localhost:3000/users/authenticate',
+      data: 
+        user
+      ,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
   }
 
-  getProfile() {
-    let headers = new Headers()
+  async getProfile() {
     this.loadToken()
-    headers.append('Authorization', this.authToken)
-    headers.append('Content-Type', 'application/json')
-    return this.http.get('http://localhost:3000/users/profile', { headers: headers })
+    return await axios({
+      method: "GET",
+      url: "http://localhost:3000/users/profile",
+      headers: {
+        'Authorization': this.authToken,
+        'Content-Type': 'application/json'
+      }
+    })
   }
 
   storeUserData(token, user) {
@@ -41,8 +61,13 @@ export class AuthService {
     this.authToken = token
   }
 
+  isUserAdmin() {
+    return this.user.userType == 1
+  }
+
   loggedIn() {
-    return tokenNotExpired('id_token')
+    const helper = new JwtHelperService()
+    return !helper.isTokenExpired(this.authToken)
   }
 
   logout() {
@@ -50,5 +75,4 @@ export class AuthService {
     this.user = null
     localStorage.clear()
   }
-
 }

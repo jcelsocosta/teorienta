@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 15rem; margin: 10px;" *ngFor="let annoucement of announcements; index as i;">
+            <div class="card-body">
+                <h5 class="card-title">{{annoucement.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{annoucement.urlDocument}}</h6>
+                <p *ngIf="annoucement.available">Disponível: <i class="fa fa-check" style="font-size:20px;color:green"></i></p>
+                <p *ngIf="!annoucement.available">Disponível: <i class="fa fa-close" style="font-size:20px;color:red"></i></p>
+            </div>
+        </div>
+    </div>
+</div>
