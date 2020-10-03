@@ -2,9 +2,9 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
-const config = require('../../infrastructure/database/mongo/config/config')
+const config = require('../../provider/infrastructure/database/mongo/config/config')
 
-const User = require('../../infrastructure/database/mongo/models/user')
+const User = require('../../provider/infrastructure/database/mongo/entities/user')
 
 //Register 
 router.post('/register', (req, res, next) => {

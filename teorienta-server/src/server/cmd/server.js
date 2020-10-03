@@ -11,8 +11,9 @@ const PORT = Server.PORT
 
 const users = require('../../delivery/routes/users')
 const announcements = require('../../delivery/routes/announcements')
+const management = require('../../delivery/routes/management')
 
-const databaseServer = require('../../infrastructure/database/mongo/cmd/server')
+const databaseServer = require('../../provider/infrastructure/database/mongo/cmd/server')
 
 function server() {
 
@@ -29,13 +30,16 @@ function server() {
     app.use(passport.initialize())
     app.use(passport.session())
 
-    require('../../infrastructure/authentication/passport/config/config')(passport)
+    require('../../provider/infrastructure/authentication/passport/config/config')(passport)
 
     // Set users routes
     app.use('/users', users)
 
     // Set announcements routes
     app.use('/announcements', announcements)
+
+    // Set management routes
+    app.use('/management', management)
 
     // Set static folder
     app.use(express.static(path.join(__dirname, 'public')))

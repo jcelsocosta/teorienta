@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 
-const Announcement = require('../../infrastructure/database/mongo/models/announcement')
+const Announcement = require('../../provider/infrastructure/database/mongo/entities/announcement')
 
 // adding a announcement to the database
 router.post("/addAnnouncement", (req, res, next) => {
@@ -19,7 +19,6 @@ router.post("/addAnnouncement", (req, res, next) => {
             res.json({ success: true, message: 'Announcement registered successfully' })
         }
     })
-    l
 })
 
 router.post("/announcements", (req, res, next) => {
