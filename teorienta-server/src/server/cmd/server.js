@@ -12,6 +12,8 @@ const PORT = Server.PORT
 const users = require('../../delivery/routes/users')
 const announcements = require('../../delivery/routes/announcements')
 const management = require('../../delivery/routes/management')
+const form = require('../../delivery/routes/form')
+
 
 const databaseServer = require('../../provider/infrastructure/database/mongo/cmd/server')
 
@@ -41,6 +43,9 @@ function server() {
     // Set management routes
     app.use('/management', management)
 
+    // Set form router
+    app.use('/form',form)
+    
     // Set static folder
     app.use(express.static(path.join(__dirname, 'public')))
 
