@@ -1,6 +1,6 @@
 const JwtStrategy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
-const User = require('../../../database/mongo/models/user')
+const User = require('../../../database/mongo/entities/user')
 const config = require('../../../database/mongo/config/config')
 
 module.exports = function (passport) {

@@ -54,7 +54,6 @@ export class AnnouncementComponent implements OnInit {
       }
     })
 
-    window.location.reload()
   }
 
   ngOnInit(): void {
