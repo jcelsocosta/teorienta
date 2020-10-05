@@ -26,11 +26,3 @@ module.exports.getAnnouncements = async function(callback) {
 module.exports.addAnnouncement = function(newAnnouncement, callback) {
     newAnnouncement.save(callback)
 }
-
-module.exports.deleteAnnouncement = function(callback) {
-
-}
-
-module.exports.updateAnnouncement = function(callback) {
-
-}

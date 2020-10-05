@@ -2,7 +2,7 @@ const Form = require('./entities/form')
 
 async function createForm(form) {
     let newForm = new Form({
-        answer = form.answer
+        answer : form.answer
     })
 
     let response

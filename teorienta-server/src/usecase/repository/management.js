@@ -1,5 +1,3 @@
-const management = require("../../provider/infrastructure/database/mongo/entities/management")
-
 class CreateManagementUseCaseRepositoryInterface {
     createManagement({ name, email, description }) {
         return null
