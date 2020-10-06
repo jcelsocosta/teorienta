@@ -8,7 +8,6 @@ class CreateAnnouncementUseCase {
     async createAnnouncement(announcement){
         const useCaseResponse = await this.repository.createAnnouncement(announcement)
 
-        console.log(useCaseResponse)
         return useCaseResponse
     }
 }
