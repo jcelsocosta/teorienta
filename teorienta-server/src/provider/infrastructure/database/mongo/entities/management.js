@@ -12,4 +12,4 @@ const ManagementSchema = mongoose.Schema({
     }
 })
 
-const Management = module.exports = mongoose.model('Management', ManagementSchema)
+module.exports = mongoose.model('Management', ManagementSchema)

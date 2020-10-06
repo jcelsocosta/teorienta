@@ -1,9 +1,16 @@
 class CreateAnnouncementUseCaseRepositoryInterface {
-    async createAnnouncement(){
+    async createAnnouncement() {
         return null
     }
 }
 
-module.exports =  {
-    CreateAnnouncementUseCaseRepositoryInterface
+class ListAnnouncementsUseCaseRepositoryInterface {
+    async listAnnouncements() {
+        return null
+    }
+}
+
+module.exports = {
+    CreateAnnouncementUseCaseRepositoryInterface,
+    ListAnnouncementsUseCaseRepositoryInterface
 }

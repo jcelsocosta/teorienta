@@ -1,9 +1,9 @@
-const mongoose = require ('mongoose')
+const mongoose = require('mongoose')
 
 const FormSchema = mongoose.Schema({
     answer: {
-         type: String
+        type: String
     }
 })
 
-const Form = module.exports = mongoose.model('Form',FormSchema)
+module.exports = mongoose.model('Form', FormSchema)

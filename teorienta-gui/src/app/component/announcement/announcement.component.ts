@@ -46,7 +46,7 @@ export class AnnouncementComponent implements OnInit {
 
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/announcements/addAnnouncement",
+      url: "http://localhost:3000/announcements/createAnnouncement",
       data: {
         title: this.title,
         urlDocument: this.urlDocument,
