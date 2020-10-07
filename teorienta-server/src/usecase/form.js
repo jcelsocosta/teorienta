@@ -8,7 +8,7 @@ class CreateFormUseCase {
     }
 
     async createForm(form) {
-        const form = form.answer;
+        const answer = form.answer;
         return await this.repository.createForm({answer})
 
     }
