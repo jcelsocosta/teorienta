@@ -1,19 +1,18 @@
+
+
 .container {
     height: 100%;
     align-content: center;
+    color: #EEE7D4;
 }
-
 .card {
     height: 370px;
-    margin-top: 100px;
+    margin-top: 2%;
     margin-bottom: auto;
     width: 300px;
-    background-color: rgba(0, 0, 0, 0.5) !important;
+    background-color: #3B4757;
 }
 
-.card-header h3 {
-    color: white;
-}
 
 input:focus {
     outline: 0 0 0 0 !important;
@@ -21,18 +20,14 @@ input:focus {
 }
 
 .login_btn {
-    color: black;
-    background-color: #f4a261;
+    color:#EEE7D4;
+    background-color: #FF7E3F;
     width: 100px;
 }
 
 .login_btn:hover {
-    color: black;
-    background-color: white;
-}
-
-.links {
-    color: white;
+    color: #FF7E3F;
+    background-color:#EEE7D4;
 }
 
 .links a {

@@ -4,13 +4,22 @@
 }
 
 .card-header h3 {
-    color: white;
+    color: #EEE7D4;
 }
 
 .card {
-    padding: 20px;
-    margin-top: 100px;
-    margin-bottom: auto;
+    padding: 10px;
     width: 300px;
-    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: #EEE7D4;
+    background-color: #3B4757;
+}
+.btn-primary {
+    background-color: #FF7E3F;
+    color: #EEE7D4;
+    border-color: #FF7E3F;
+}
+.btn-primary:hover {
+    background-color: #EEE7D4;
+    border-color: #EEE7D4;
+    color: #FF7E3F;
 }

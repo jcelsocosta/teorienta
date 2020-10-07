@@ -20,16 +20,6 @@
                         </div>
                         <input type="password" class="form-control" [(ngModel)]="password" name="password">
                     </div>
-                    <!-- <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Sou: </span>
-                        </div>
-                        <select class="form-control" [(ngModel)]="userTypeSelected" name="userTypeSelected">
-                            <option [selected]="true" [disabled]="true">Escolha tipo de usuário</option>
-                            <option *ngFor="let userType of userTypes; index as i;" value={{userType.id}}>
-                                {{userType.type}}</option>
-                        </select>
-                    </div> -->
                     <div class="form-group">
                         <input type="submit" value="Login" class="btn float-right login_btn" (click)="login()">
                     </div>
@@ -42,4 +32,5 @@
             </div>
         </div>
     </div>
+    
 </div>
