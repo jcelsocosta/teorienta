@@ -18,7 +18,8 @@ import { AuthService } from './services/auth.service'
 import { FlashMessagesModule } from 'angular2-flash-messages'
 import { AuthGuard } from './guards/auth.guard'
 import { AdminGuard } from './guards/admin.guards';
-import { FeedAnnouncementComponent } from './component/feed-announcement/feed-announcement.component'
+import { FeedAnnouncementComponent } from './component/feed-announcement/feed-announcement.component';
+import { FormQuestionsComponent } from './component/form-questions/form-questions.component'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
   { path: 'announcements', component: AnnouncementComponent, canActivate: [AdminGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'feed-announcement', component: FeedAnnouncementComponent, canActivate: [AuthGuard]},
+  { path: 'form-questions', component: FormQuestionsComponent, canActivate: [AuthGuard]},
 ]
 
 @NgModule({
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     RegisterComponent,
     LoginComponent,
-    FeedAnnouncementComponent
+    FeedAnnouncementComponent,
+    FormQuestionsComponent
   ],
   imports: [
     BrowserModule,

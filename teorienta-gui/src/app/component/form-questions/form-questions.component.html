@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                    <h3>Questions</h3>
+            </div>
+            <div *ngFor="let q of questoes; index as x">
+                <label>Questão {{x || 0}}</label><br>
+                <input type="text" ><br>
+            </div><br><br>
+                <button type="button" class="btn btn-primary" (click)="addCampo()">+</button>
+            
+        </div>
+    </div>
+</div>
