@@ -28,12 +28,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-
+    
     const user = {
       username: this.username,
       password: this.password
     }
-
     this.authService.authenticateUser(user).then(response => {
       const body = response.data
       if (body.success) {

@@ -2,14 +2,22 @@
     <div class="d-flex justify-content-center h-100">
         <div class="card">
             <div class="card-header">
-                    <h3>Questions</h3>
+                    <h3>Questões</h3>
             </div>
-            <div *ngFor="let q of questoes; index as x">
-                <label>Questão {{x || 0}}</label><br>
-                <input type="text" ><br>
-            </div><br><br>
-                <button type="button" class="btn btn-primary" (click)="addCampo()">+</button>
-            
+            <div class="card-body">
+                <div class="form-group">
+                    <div *ngFor="let q of questoes; index as x">
+                        <label>Questão {{ x || 0}}</label><br>
+                        <input type="text" > &nbsp;
+                        <button type="button" class="btn btn-secondary" (click)="removeCampo()">X</button>
+                        <br>
+                    </div>
+                    <br><br>
+                </div>
+                    <button type="button" class="btn btn-primary" (click)="addCampo()">+</button>
+            </div>
+            <button type="button" class="btn btn-primary">Cancelar</button><br><br>
+            <button type="button" class="btn btn-primary">Cadastrar</button>
         </div>
     </div>
 </div>
