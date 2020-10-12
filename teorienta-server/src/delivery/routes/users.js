@@ -9,13 +9,9 @@ const User = require('../../provider/infrastructure/database/mongo/entities/user
 
 // addUser
 router.post('/register', async (req, res, next) => {
-    const name = req.body.name
-    const email = req.body.email
-    const username = req.body.username
-    const password = req.body.password
-    const userType = req.body.userType
+    const user = req.body.user
 
-    const response = await createUser({ name, email, username, password, userType })
+    const response = await createUser(user)
 
     res.send(response)
 })
