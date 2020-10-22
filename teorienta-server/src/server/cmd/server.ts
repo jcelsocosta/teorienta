@@ -33,7 +33,7 @@ function server() {
     app.use(passport.initialize())
     app.use(passport.session())
 
-    require('../../provider/infrastructure/authentication/passport/config/config')(passport)
+   // require('../../provider/infrastructure/authentication/passport/connection/config')(passport)
 
     // Set users routes
     //app.use('/users', users)
