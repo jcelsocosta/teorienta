@@ -3,5 +3,5 @@ export interface IUserCreateRepository {
 }
 
 export interface IUserAuthenticateRepository {
-    authenticateUser(user: any): Promise<void>
+    authenticateUser(user: any): Promise<any>
 }

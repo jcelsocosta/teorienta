@@ -1,7 +1,7 @@
 import { CreateUserUseCaseRepository, AuthenticateUserUseCaseRepository } from '../../provider/repository/user'
 import { CreateUserUseCase, AuthenticateUserUseCase } from '../../usecase/user'
 
-async function createUser(user) {
+export async function createUser(user: any) {
 
     const repository = new CreateUserUseCaseRepository()
     const usecase = new CreateUserUseCase(repository)
@@ -9,14 +9,9 @@ async function createUser(user) {
     return await usecase.createUser(user)
 }
 
-async function authenticateUser(user) {
+export async function authenticateUser(user: any) {
     const repository = new AuthenticateUserUseCaseRepository()
     const usecase = new AuthenticateUserUseCase(repository)
 
     return await usecase.authenticateUser(user)
-}
-
-module.exports = {
-    createUser,
-    authenticateUser
 }

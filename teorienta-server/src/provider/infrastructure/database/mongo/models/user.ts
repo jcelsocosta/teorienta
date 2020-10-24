@@ -2,7 +2,10 @@ import mongoose, { Schema } from 'mongoose'
 
 // User Schema
 export interface IUser extends mongoose.Document {
-    name: string;
+    name: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true
@@ -23,6 +26,10 @@ export interface IUser extends mongoose.Document {
 
 export const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
+    email: { type: String, required: true },
+    username: { type: String, required: true },
+    password: { type: String, required: true },
+    userType: { type: String, required: true },
     somethingElse: Number,
 });
 

@@ -5,18 +5,16 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import passport from 'passport'
 
-
 import { Server } from '../config/config'
 const PORT = Server.PORT
 
-//import users from '../../delivery/routes/users'
+import users from '../../delivery/routes/user'
 import announcements from '../../delivery/routes/announcements'
-//import management from '../../delivery/routes/management'
-//import form from '../../delivery/routes/form'
+import management from '../../delivery/routes/management'
+import form from '../../delivery/routes/form'
 
-
-//import databaseServer from '../../provider/infrastructure/database/mongo/cmd/server'
 import databaseServer from '../../provider/infrastructure/database/mongo/cmd/server'
+import config from '../../provider/infrastructure/authentication/passport/connection/config'
 
 function server() {
 
@@ -33,19 +31,19 @@ function server() {
     app.use(passport.initialize())
     app.use(passport.session())
 
-    require('../../provider/infrastructure/authentication/passport/config/config')(passport)
+    config(passport)
 
     // Set users routes
-    //app.use('/users', users)
+    app.use('/users', users)
 
     // Set announcements routes
     app.use('/announcements', announcements)
 
     // Set management routes
-    //app.use('/management', management)
+    app.use('/management', management)
 
     // Set form router
-    //app.use('/form', form)
+    app.use('/form', form)
 
     // Set static folder
     app.use(express.static(path.join(__dirname, 'public')))

@@ -3,5 +3,5 @@ export interface ICreateAnnouncementsRepository {
 }
 
 export interface IListAnnouncementsRepository {
-    listAnnouncements(announcement: any): Promise<any>
+    listAnnouncements(): Promise<any>
 }

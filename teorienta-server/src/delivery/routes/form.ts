@@ -9,4 +9,4 @@ router.post("/createForm", async (req, res) => {
     res.send(await createForm({ answer }))
 })
 
-module.exports = router
+export default router

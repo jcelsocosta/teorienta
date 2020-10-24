@@ -10,7 +10,7 @@ export async function createUser(user: any) {
         userType: user.userType
     })
 
-    let response
+    let response: any
 
     const salt = bcrypt.genSaltSync(10)
     const hash = bcrypt.hashSync(newUser.password, salt)
