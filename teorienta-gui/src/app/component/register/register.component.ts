@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/register'])
       }
     }).catch((error) => {
-      console.log(error)
+      console.log("aqui: "+error)
     })
   }
 
