@@ -2,6 +2,7 @@ import Form from './models/form'
 
 export async function createForm(form: any) {
     let newForm = new Form({
+        question: form.question,
         answer: form.answer
     })
 

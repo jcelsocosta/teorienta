@@ -1,5 +1,4 @@
 import { ICreateAnnouncementsRepository, IListAnnouncementsRepository } from './repository/IAnnouncementsRepository'
-import announcement from '../provider/infrastructure/database/mongo/models/announcement';
 
 export class CreateAnnouncementUseCase {
     constructor(
@@ -20,6 +19,6 @@ export class ListAnnouncementsUseCase {
 
     async listAnnouncements() {
         
-        return await this.repository.listAnnouncements(announcement);
+        return await this.repository.listAnnouncements();
     }
 }

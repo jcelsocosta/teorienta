@@ -5,6 +5,8 @@ export async function createUser(user: any) {
     let newUser = new User({
         name: user.name,
         email: user.email,
+        cpf: user.cpf,
+        cnpfj: user.cnpj,
         username: user.username,
         password: user.password,
         userType: user.userType

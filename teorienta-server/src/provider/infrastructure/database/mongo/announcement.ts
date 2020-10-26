@@ -3,6 +3,12 @@ import Announcement from './models/announcement'
 export async function createAnnouncement(announcement: any) {
     let newAnnouncement = new Announcement({
         title: announcement.title,
+        objective: announcement.objective ,
+        fomentation: announcement.fomentation ,
+        category: announcement.category ,
+        dateSubmission: announcement.dateSubmission ,
+        cnpj: announcement.cnpj,
+        cpf: announcement.cpf,
         urlDocument: announcement.urlDocument,
         available: announcement.available
     })

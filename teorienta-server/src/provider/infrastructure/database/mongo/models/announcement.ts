@@ -6,14 +6,37 @@ const AnnouncementSchema: Schema = new Schema({
         type: String,
         required: true
     },
-    urlDocument: {
+    objective: {
         type: String,
         required: true
     },
-    available: {
-        type: Boolean,
+    fomentation: {
+        type: Number,
         required: true
+    },
+    category:{
+        type: String,
+        required: true
+    },
+    dateSubmission:{
+        type: String,
+        required: true
+    },
+    cnpj:{
+        type: String,
+        required: false
+    },
+    cpf: {
+        type: String,
+        required: false
+    },
+    urlDocument:{
+        type: String
+    },
+    available: {
+        type: String
     }
+
 })
 
 

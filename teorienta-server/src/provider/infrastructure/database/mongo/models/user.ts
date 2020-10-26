@@ -10,6 +10,12 @@ export interface IUser extends mongoose.Document {
         type: String,
         required: true
     },
+    cpf:{
+        type: String
+    },
+    cnpj:{
+        type: String
+    },
     username: {
         type: String,
         required: true
