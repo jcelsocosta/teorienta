@@ -12,6 +12,8 @@ import users from '../../delivery/routes/user'
 import announcements from '../../delivery/routes/announcements'
 import management from '../../delivery/routes/management'
 import form from '../../delivery/routes/form'
+import schedule from '../../delivery/routes/schedule'
+
 
 import databaseServer from '../../provider/infrastructure/database/mongo/cmd/server'
 import config from '../../provider/infrastructure/authentication/passport/connection/config'
@@ -44,6 +46,9 @@ function server() {
 
     // Set form router
     app.use('/form', form)
+
+    //Set schedule router
+    app.use('/schedule', schedule)
 
     // Set static folder
     app.use(express.static(path.join(__dirname, 'public')))
