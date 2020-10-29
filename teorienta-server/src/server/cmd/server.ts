@@ -13,7 +13,7 @@ import announcements from '../../delivery/routes/announcements'
 import management from '../../delivery/routes/management'
 import form from '../../delivery/routes/form'
 import schedule from '../../delivery/routes/schedule'
-
+import email from '../../delivery/routes/email';
 
 import databaseServer from '../../provider/infrastructure/database/mongo/cmd/server'
 import config from '../../provider/infrastructure/authentication/passport/connection/config'
@@ -50,6 +50,11 @@ function server() {
     //Set schedule router
     app.use('/schedule', schedule)
 
+
+    //Set email router
+    app.use('/email',email)
+
+    
     // Set static folder
     app.use(express.static(path.join(__dirname, 'public')))
 

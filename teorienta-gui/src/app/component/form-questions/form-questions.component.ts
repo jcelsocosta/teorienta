@@ -22,6 +22,6 @@ export class FormQuestionsComponent implements OnInit {
     this.questoes.push(this.x);
   }
   removeCampo(): void {
-    //subscribe
+    this.questoes.pop();
   }
 }
