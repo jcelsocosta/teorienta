@@ -10,12 +10,13 @@ export async function createSchedule(schedule: any) {
 
     let response: any
 
-    await Schedule.create(newSchedule)
+    response = await Schedule.create(newSchedule)
+    /*
         .then((schedule: any) => {
             response = {success: true, message: "Schedule sucessfuly stored", schedule}
         }).catch((err) => {
             response = {success: false, message: "Failed to register a new schedule",err}
         })
-
+        */
         return response
 }

@@ -8,12 +8,13 @@ export async function createForm(form: any) {
 
     let response: any
 
-    await Form.create(newForm)
+    response = await Form.create(newForm)
+    /*
         .then((form) => {
             response = { success: true, message: 'Form successfully stored.', form }
         }).catch((err) => {
             response = { success: false, message: 'Failed to register a new form.', err }
-        })
+        })*/
 
     return response
 }

@@ -9,9 +9,11 @@ export class FormQuestionsComponent implements OnInit {
   x: number;
   answer: String;
   questoes: Array<any>;
+  num: number;
 
   constructor() { 
     this.x = 0;
+    this.num = 0;
     this.questoes = [this.x];
   }
 
@@ -23,5 +25,11 @@ export class FormQuestionsComponent implements OnInit {
   }
   removeCampo(): void {
     this.questoes.pop();
+  }
+  addBadge():void{
+    this.num = this.num + 1;
+  }
+  removeBadge():void{
+    this.num = this.num -1;
   }
 }

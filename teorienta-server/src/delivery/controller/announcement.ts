@@ -1,5 +1,5 @@
-import { CreateAnnouncementUseCaseRepository, ListAnnouncementsUseCaseRepository } from '../../provider/repository/announcement'
-import { CreateAnnouncementUseCase, ListAnnouncementsUseCase } from '../../usecase/announcement'
+import { CreateAnnouncementUseCaseRepository, ListAnnouncementsUseCaseRepository, DeleteAnnouncementsUseCaseRepository, UpdateAnnouncementsUseCaseRepository } from '../../provider/repository/announcement'
+import { CreateAnnouncementUseCase, ListAnnouncementsUseCase, DeleteAnnouncementsUseCase, UpdateAnnouncementsUseCase } from '../../usecase/announcement'
 
 export async function createAnnouncement(announcement: any) {
 
@@ -14,4 +14,16 @@ export async function listAnnouncements() {
     const usecase = new ListAnnouncementsUseCase(repository)
 
     return await usecase.listAnnouncements()
+}
+
+export async function deleteAnnouncements(objectId: any){
+    const repository = new DeleteAnnouncementsUseCaseRepository();
+    const usecase = new DeleteAnnouncementsUseCase(repository);
+    return await usecase.deleteAnnouncement(objectId); 
+}
+
+export async function updateAnnouncements(announcement: any){
+    const repository = new UpdateAnnouncementsUseCaseRepository();
+    const usecase = new UpdateAnnouncementsUseCase(repository);
+    return await usecase.updateAnnouncement(announcement);
 }

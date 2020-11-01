@@ -34,6 +34,8 @@ export const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
     username: { type: String, required: true },
+    cnpj: { type: String},
+    cpf: { type: String},
     password: { type: String, required: true },
     userType: { type: String, required: true },
     somethingElse: Number,

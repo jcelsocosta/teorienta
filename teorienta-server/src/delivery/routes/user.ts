@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router()
 import passport from 'passport'
-import { createUser, authenticateUser } from '../controller/user'
+import { createUser, authenticateUser, listUser } from '../controller/user'
 
 // addUser
 router.post('/register', async (req, res, next) => {    
@@ -22,10 +22,17 @@ router.post('/authenticate', async (req, res, next) => {
     res.send(response)
 
 })
+//get Usuarios
+router.post('/getUsers',async(req,res)=>{
+    const response = await listUser();
+    res.send(response);
+})
+
 
 //Profile
 router.get('/profile', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-    res.json({ user: req.body.user })
+    console.log(req.body.user);
+    res.json({user: req.body.user})
 })
 
 export default router

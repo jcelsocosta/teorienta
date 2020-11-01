@@ -1,4 +1,4 @@
-import { IUserCreateRepository, IUserAuthenticateRepository } from './repository/IUserRepository'
+import { IUserCreateRepository, IUserAuthenticateRepository, IListUserRepository } from './repository/IUserRepository'
 import jwt from 'jsonwebtoken'
 import config from '../provider/infrastructure/database/mongo/config/config'
 
@@ -13,6 +13,18 @@ export class CreateUserUseCase {
         return useCaseResponse
     }
 }
+
+export class ListUserUseCase {
+    constructor(
+        private repository: IListUserRepository
+    ) { }
+
+    async listUser() {
+        
+        return await this.repository.listUser();
+    }
+}
+
 
 export class AuthenticateUserUseCase {
     constructor(
@@ -34,8 +46,10 @@ export class AuthenticateUserUseCase {
                 user: {
                     id: user._id,
                     name: user.name,
-                    username: user.username,
                     email: user.email,
+                    cpf: user.cpf,
+                    cnpj: user.cnpj,
+                    username: user.username,
                     userType: user.userType
                 }
             }

@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +21,11 @@ import { AuthGuard } from './guards/auth.guard'
 import { AdminGuard } from './guards/admin.guards';
 import { FeedAnnouncementComponent } from './component/feed-announcement/feed-announcement.component';
 import { FormQuestionsComponent } from './component/form-questions/form-questions.component';
-import { SendEmailComponent } from './component/send-email/send-email.component'
+import { SendEmailComponent } from './component/send-email/send-email.component';
+import { FeedUserComponent } from './component/feed-user/feed-user.component';
+import { LifeCycleComponent } from './component/life-cycle/life-cycle.component';
+import { NotificationComponent } from './component/notification/notification.component'
+import { AnnouncementService } from './services/announcement/announcement.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,7 +36,10 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'feed-announcement', component: FeedAnnouncementComponent, canActivate: [AuthGuard]},
   { path: 'form-questions', component: FormQuestionsComponent, canActivate: [AuthGuard]},
-  { path: 'send-email', component: SendEmailComponent, canActivate: [AdminGuard]}
+  { path: 'send-email', component: SendEmailComponent, canActivate: [AdminGuard]},
+  { path: 'feed-user', component: FeedUserComponent, canActivate:[AdminGuard]},
+  { path: 'life-cycle', component: LifeCycleComponent, canActivate:[AuthGuard]},
+  { path: 'notification', component:NotificationComponent, canActivate:[AdminGuard] }
 ]
 
 @NgModule({
@@ -46,16 +54,21 @@ const appRoutes: Routes = [
     LoginComponent,
     FeedAnnouncementComponent,
     FormQuestionsComponent,
-    SendEmailComponent
+    SendEmailComponent,
+    FeedUserComponent,
+    LifeCycleComponent,
+    NotificationComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot()
   ],
-  providers: [ValidateService, AuthService, AuthGuard, AdminGuard],
+  providers: [ValidateService, AuthService, AuthGuard, AdminGuard, AnnouncementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

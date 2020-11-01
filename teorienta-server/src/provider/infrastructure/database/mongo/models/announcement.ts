@@ -34,7 +34,7 @@ const AnnouncementSchema: Schema = new Schema({
         type: String
     },
     available: {
-        type: String
+        type: Boolean
     }
 
 })

@@ -46,7 +46,19 @@ async function getUserByUsername(username) {
 
     return response
 }
+export async function listUser() {
 
+    let response: any
+
+    await User.find({})
+        .then((user) => {
+            response = { success: true, message: 'Announcements obtained successfully.', user }
+        }).catch((err) => {
+            response = { success: false, message: 'Failed to get the announcements.', err }
+        })
+
+    return response
+}
 export async function authenticateUser({ username, password }) {
     let response
     await User.findOne({ username }).

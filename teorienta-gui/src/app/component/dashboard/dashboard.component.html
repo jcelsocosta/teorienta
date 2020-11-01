@@ -1,2 +1,21 @@
 <h2 class="page-header">Dashboard</h2>
-<p>Welcome to your dashboard</p>
+<div class="card" style="width: 18rem;"> 
+    <div class="card-body">
+      <h5 class="card-title">Usuários</h5>
+      <a [routerLink]="['/feed-user']" class="btn btn-primary">Ver</a>
+    </div>
+</div>
+
+  <div class="card" style="width: 18rem;"> 
+      <div class="card-body">
+        <h5 class="card-title">Notificações</h5>
+        <a [routerLink]="['/notification']" class="btn btn-primary">Ver</a>
+      </div>
+  </div>
+
+<div class="card" style="width: 18rem;"> 
+  <div class="card-body">
+    <h5 class="card-title">Acompanhamento dos Projetos</h5>
+    <a [routerLink]="['/life-cycle']" class="btn btn-primary">Ver</a>
+  </div>
+</div>

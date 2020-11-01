@@ -1,12 +1,25 @@
 <div class="container">
     <div class="row">
-        <div class="card" style="width: 15rem; margin: 10px;" *ngFor="let annoucement of announcements; index as i;">
+        <div class="card" style="width: 15rem; margin: 10px;" *ngFor="let announcement of announcements; index as i;">
             <div class="card-body">
-                <h5 class="card-title">{{annoucement.title}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{annoucement.urlDocument}}</h6>
-                <p *ngIf="annoucement.available">Disponível: <i class="fa fa-check" style="font-size:20px;color:green"></i></p>
-                <p *ngIf="!annoucement.available">Disponível: <i class="fa fa-close" style="font-size:20px;color:red"></i></p>
+                <h5 class="card-title">{{announcement.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{announcement.objective}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{announcement.fomentation}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{announcement.category}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{announcement.dateSubmission}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{announcement.cnpj}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{announcement.cpf}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{announcement.urlDocument}}</h6>
+                <p *ngIf="announcement.available">Disponível: <i class="fa fa-check" style="font-size:20px;color:green"></i></p>
+                <p *ngIf="!announcement.available">Disponível: <i class="fa fa-close" style="font-size:20px;color:red"></i></p>
+                <p *ngIf="announcement.available">
+                    <button class="btn btn-primary" (click)="aplicarEdital()">Aplicar a este Edital</button>
+                </p>
+               
             </div>
         </div>
     </div>
+
+    
 </div>
+
