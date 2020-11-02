@@ -10,8 +10,9 @@ import {AnnouncementService} from '../../services/announcement/announcement.serv
 export class AnnouncementComponent implements OnInit {
   announcement: Announcement = new Announcement();
   announcements: Announcement[] = [];
-  announcementsAux: Announcement[] = [];
   announcementAux: Announcement = new Announcement();
+  announcementsAux: Announcement[] = [];
+ 
 
 
   constructor(private announcementServices: AnnouncementService) {
@@ -26,10 +27,8 @@ export class AnnouncementComponent implements OnInit {
   }
   
   copyFrom(announcement: Announcement){
-    this.announcementsAux = [];
-    this.announcement = new Announcement();
+    this.announcementsAux.pop();
     this.announcementsAux.push(announcement)
-    
   }
 
   subscribeAnnouncement(announcement: Announcement){
@@ -45,6 +44,7 @@ export class AnnouncementComponent implements OnInit {
   }
 
   unsubscribeAnnouncement(objectId:String){
+    
     this.announcementServices.deleteAnnouncements(objectId)
     .subscribe(
       _ =>{
@@ -65,6 +65,7 @@ export class AnnouncementComponent implements OnInit {
   }
   
   updateAnnouncement(announcement: Announcement){
+    
     this.announcementServices.updateAnnouncements(announcement)
     .subscribe(
       _ =>{
@@ -74,16 +75,15 @@ export class AnnouncementComponent implements OnInit {
           for(let i: number = 0; i < len; i++){
             if(this.announcements[i]._id == announcement._id){
               index = i;
-              this.announcements[index] = announcement;
+             
             }
           }
-          
-         
+          this.announcements[index] = announcement;
+          this.announcementAux = new Announcement();
         }
         
       }
     );
-    this.announcement = new Announcement(); 
   }  
 }
 

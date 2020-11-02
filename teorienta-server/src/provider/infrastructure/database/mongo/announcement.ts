@@ -37,7 +37,6 @@ export async function listAnnouncements() {
     
     let response: any;
     response = await Announcement.find({});
-    console.log(response)
     /*
     await Announcement.find({})
         .then((announcements) => {

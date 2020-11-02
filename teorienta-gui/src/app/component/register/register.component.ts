@@ -11,12 +11,14 @@ import axios from 'axios'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  name: String
-  username: String
-  email: String
-  password: String
-  userTypes: Array<Object>
-  userTypeSelected: any
+  name: String;
+  username: String;
+  email: String;
+  password: String;
+  cpf: String;
+  cnpj: String;
+  userTypes: Array<Object>;
+  userTypeSelected: any;
 
   constructor(
     private validateService: ValidateService,
@@ -33,6 +35,8 @@ export class RegisterComponent implements OnInit {
     const user = {
       name: this.name,
       email: this.email,
+      cpf: this.cpf,
+      cnpj: this.cnpj,
       username: this.username,
       password: this.password,
       userType: this.userTypeSelected

@@ -24,12 +24,12 @@ export class FeedAnnouncementComponent implements OnInit {
   }
 
   loadUser(): any {
-    return (localStorage.getItem('user'));
+    let response = localStorage.getItem("user");
+    return response;
   }
   aplicarEdital(annoucement: Announcement): void{
     const user = this.loadUser();
     const announ = annoucement._id;
-    //alert(user+"\n"+announ);
     alert(user+"\n"+announ);
   }
 

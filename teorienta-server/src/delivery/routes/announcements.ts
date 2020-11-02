@@ -36,7 +36,6 @@ router.delete("/delete/:objectId", async(req: express.Request, res: express.Resp
     res.send(reponse);
 })
 router.put("/update", async(req:express.Request, res: express.Response)=>{
-    console.log(req.body);
     let newAnnouncement = new Announcement({
         _id: req.body._id,
         title: req.body.title,
