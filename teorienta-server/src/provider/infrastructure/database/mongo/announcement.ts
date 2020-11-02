@@ -1,7 +1,14 @@
 import Announcement from './models/announcement'
 
+
 export async function createAnnouncement(announcement: any) {
+    let arrayCount: any[] = []
+    let len: any;
+    arrayCount = await Announcement.find();
+    len = arrayCount.length+1;
+    if(len==0) len = 1;
     let newAnnouncement = new Announcement({
+        _id: len,
         title: announcement.title,
         objective: announcement.objective ,
         fomentation: announcement.fomentation ,
@@ -41,7 +48,6 @@ export async function listAnnouncements() {
     return response;
 }
 export async function deleteAnnouncements(objectId: any){
-    console.log(objectId);
     let response: any;
     
     response = await Announcement.deleteOne({"title":objectId});
@@ -49,7 +55,7 @@ export async function deleteAnnouncements(objectId: any){
 }
 
 export async function updateAnnouncements(announcement: any){
-    let titleQuery: String = announcement.title as String;
+    let ObjectId: any = announcement.objectId;
     let newAnnouncement = {
         title: announcement.title,
         objective: announcement.objective ,
@@ -62,7 +68,7 @@ export async function updateAnnouncements(announcement: any){
         available: announcement.available
     };
     let response: any
-    response = await Announcement.update({"title":titleQuery},
+    response = await Announcement.update({"_id":ObjectId},
     {"title":newAnnouncement.title,
     "objective": newAnnouncement.objective,
     "fomentation": newAnnouncement.fomentation,

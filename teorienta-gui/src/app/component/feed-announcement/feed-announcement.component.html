@@ -13,7 +13,7 @@
                 <p *ngIf="announcement.available">Disponível: <i class="fa fa-check" style="font-size:20px;color:green"></i></p>
                 <p *ngIf="!announcement.available">Disponível: <i class="fa fa-close" style="font-size:20px;color:red"></i></p>
                 <p *ngIf="announcement.available">
-                    <button class="btn btn-primary" (click)="aplicarEdital()">Aplicar a este Edital</button>
+                    <button class="btn btn-primary" (click)="aplicarEdital(announcement)">Aplicar a este Edital</button>
                 </p>
                
             </div>

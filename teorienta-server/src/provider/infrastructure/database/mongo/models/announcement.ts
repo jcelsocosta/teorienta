@@ -1,10 +1,12 @@
 import mongoose, { Schema } from 'mongoose'
-
 // Announcement Schema
 const AnnouncementSchema: Schema = new Schema({
-    title: {
-        type: String,
+    _id:{
+        type: Number,
         required: true
+    },
+    title: {
+        type: String
     },
     objective: {
         type: String,
@@ -37,7 +39,7 @@ const AnnouncementSchema: Schema = new Schema({
         type: Boolean
     }
 
-})
+});
 
 
 export default mongoose.model('Announcement', AnnouncementSchema)
