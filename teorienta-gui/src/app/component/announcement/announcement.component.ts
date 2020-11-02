@@ -10,15 +10,8 @@ import {AnnouncementService} from '../../services/announcement/announcement.serv
 export class AnnouncementComponent implements OnInit {
   announcement: Announcement = new Announcement();
   announcements: Announcement[] = [];
-  title: String
-  objective: String
-  fomentation: String
-  category: String
-  dateSubmission: String
-  cnpj: String
-  cpf: String
-  urlDocument: String
-  available: boolean
+  announcementsAux: Announcement[] = [];
+  announcementAux: Announcement = new Announcement();
 
 
   constructor(private announcementServices: AnnouncementService) {
@@ -32,7 +25,13 @@ export class AnnouncementComponent implements OnInit {
       );
   }
   
-  
+  copyFrom(announcement: Announcement){
+    this.announcementsAux = [];
+    this.announcement = new Announcement();
+    this.announcementsAux.push(announcement)
+    
+  }
+
   subscribeAnnouncement(announcement: Announcement){
     this.announcementServices.postAnnouncements(announcement)
       .subscribe(
@@ -64,9 +63,8 @@ export class AnnouncementComponent implements OnInit {
     );
       
   }
-
+  
   updateAnnouncement(announcement: Announcement){
-    this.announcement = new Announcement(); 
     this.announcementServices.updateAnnouncements(announcement)
     .subscribe(
       _ =>{
@@ -74,16 +72,18 @@ export class AnnouncementComponent implements OnInit {
           let index = 0;
           let len = this.announcements.length;
           for(let i: number = 0; i < len; i++){
-            if(this.announcements[i].title == announcement.title){
+            if(this.announcements[i]._id == announcement._id){
               index = i;
+              this.announcements[index] = announcement;
             }
           }
-          this.announcements[index] = announcement;
+          
          
         }
         
       }
     );
-      
+    this.announcement = new Announcement(); 
   }  
 }
+

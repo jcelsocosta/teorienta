@@ -37,6 +37,7 @@ export async function listAnnouncements() {
     
     let response: any;
     response = await Announcement.find({});
+    console.log(response)
     /*
     await Announcement.find({})
         .then((announcements) => {
@@ -55,7 +56,8 @@ export async function deleteAnnouncements(objectId: any){
 }
 
 export async function updateAnnouncements(announcement: any){
-    let ObjectId: any = announcement.objectId;
+    
+    let ObjectId: any = announcement._id;
     let newAnnouncement = {
         title: announcement.title,
         objective: announcement.objective ,

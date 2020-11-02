@@ -1,4 +1,5 @@
 export class Announcement{
+    _id:Number;
     title: String;
     objective: String;
     fomentation: number;
@@ -15,6 +16,7 @@ export class Announcement{
     }
 
     clean(){
+        
         this.title = "";
         this.objective = "";
         this.fomentation = 0;
@@ -26,6 +28,7 @@ export class Announcement{
         this.available = false;
     }
     copyAnnouncement(announcement: Announcement){
+        this._id = announcement._id;
         this.title = announcement.title;
         this.objective = announcement.objective;
         this.fomentation = announcement.fomentation;

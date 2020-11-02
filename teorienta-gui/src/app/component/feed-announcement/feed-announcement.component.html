@@ -1,25 +1,28 @@
+
 <div class="container">
     <div class="row">
-        <div class="card" style="width: 15rem; margin: 10px;" *ngFor="let announcement of announcements; index as i;">
+        <div class="card" style="width: 20rem; margin: 10px;" *ngFor="let annoucement of announcements; index as i;">
             <div class="card-body">
-                <h5 class="card-title">{{announcement.title}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{announcement.objective}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted">{{announcement.fomentation}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted">{{announcement.category}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted">{{announcement.dateSubmission}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted">{{announcement.cnpj}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted">{{announcement.cpf}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted">{{announcement.urlDocument}}</h6>
-                <p *ngIf="announcement.available">Disponível: <i class="fa fa-check" style="font-size:20px;color:green"></i></p>
-                <p *ngIf="!announcement.available">Disponível: <i class="fa fa-close" style="font-size:20px;color:red"></i></p>
-                <p *ngIf="announcement.available">
-                    <button class="btn btn-primary" (click)="aplicarEdital(announcement)">Aplicar a este Edital</button>
+                <label>Id:&nbsp;{{annoucement._id}}</label><br>
+                <label>Títutlo:&nbsp;{{annoucement.title}}</label><br>
+                <label>Objetivo:&nbsp;{{annoucement.objective}}</label><br>
+                <label>Fomentação:&nbsp;{{annoucement.fomentation}}</label><br>
+                <label>Categoria:&nbsp;{{annoucement.category}}</label><br>
+                <label>Data de Submissão:&nbsp;{{annoucement.dateSubmission}}</label><br>
+                <label>CNPJ:&nbsp;{{annoucement.cnpj}}</label><br>
+                <label>CPF:&nbsp;{{annoucement.cpf}}</label><br>
+                <label>Url do Edital:&nbsp;<a [attr.href]="annoucement.urlDocument">{{annoucement.urlDocument}}</a></label><br>
+                <p *ngIf="annoucement.available">
+                    <label>Disponível:<i class="fa fa-check" style="font-size:20px;color:green"></i></label>
+                    <br>
+                    <button class="btn btn-primary" (click)="aplicarEdital(annoucement)">Aplicar a este Edital</button>
+
                 </p>
-               
+                <p *ngIf="!annoucement.available">
+                    <label>Disponível:<i class="fa fa-close" style="font-size:20px;color:red"></i></label>
+                </p>
+
             </div>
         </div>
     </div>
-
-    
 </div>
-
