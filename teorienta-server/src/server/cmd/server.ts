@@ -14,9 +14,11 @@ import management from '../../delivery/routes/management'
 import form from '../../delivery/routes/form'
 import schedule from '../../delivery/routes/schedule'
 import email from '../../delivery/routes/email';
+import notification from '../../delivery/routes/notification'
 
 import databaseServer from '../../provider/infrastructure/database/mongo/cmd/server'
 import config from '../../provider/infrastructure/authentication/passport/connection/config'
+
 
 function server() {
 
@@ -54,6 +56,8 @@ function server() {
     //Set email router
     app.use('/email',email)
 
+    //set notification router
+    app.use('/notification',notification)
     
     // Set static folder
     app.use(express.static(path.join(__dirname, 'public')))

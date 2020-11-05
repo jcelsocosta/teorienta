@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service'
 import { FlashMessagesService } from 'angular2-flash-messages'
 import { Router } from '@angular/router'
 import axios from 'axios'
+import { User} from '../../common/user';
 
 @Component({
   selector: 'app-register',
@@ -11,12 +12,13 @@ import axios from 'axios'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  //user: User = new User();
   name: String;
   username: String;
   email: String;
   password: String;
-  cpf: String;
   cnpj: String;
+  cpf: String;
   userTypes: Array<Object>;
   userTypeSelected: any;
 
@@ -32,11 +34,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit() {
+    
     const user = {
       name: this.name,
       email: this.email,
-      cpf: this.cpf,
       cnpj: this.cnpj,
+      cpf: this.cpf,
       username: this.username,
       password: this.password,
       userType: this.userTypeSelected

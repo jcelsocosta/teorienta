@@ -10,6 +10,7 @@ import {AnnouncementService} from '../../services/announcement/announcement.serv
 export class AnnouncementComponent implements OnInit {
   announcement: Announcement = new Announcement();
   announcements: Announcement[] = [];
+  
   announcementAux: Announcement = new Announcement();
   announcementsAux: Announcement[] = [];
  

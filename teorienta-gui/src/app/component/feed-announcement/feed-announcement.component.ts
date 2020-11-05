@@ -27,10 +27,21 @@ export class FeedAnnouncementComponent implements OnInit {
     let response = localStorage.getItem("user");
     return response;
   }
-  aplicarEdital(annoucement: Announcement): void{
+  aplicarEdital(announcement: Announcement): void{
     const user = this.loadUser();
-    const announ = annoucement._id;
-    alert(user+"\n"+announ);
+    const announ = {
+      _id: announcement._id,
+      title: announcement.title,
+      objective: announcement.objective,
+      fomentation: announcement.fomentation,
+      category: announcement.category,
+      dateSubmission: announcement.dateSubmission,
+      cnpj: announcement.cnpj,
+      cpf: announcement.cpf,
+      urlDocument: announcement.urlDocument,
+      available: announcement.available
+    }
+    alert(user+"\n"+announ._id+" - "+announ.title+" - "+announ.objective+" - "+announ.dateSubmission);
   }
 
   

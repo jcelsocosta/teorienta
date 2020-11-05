@@ -1,8 +1,8 @@
 class Config {
     public host  = "smtp.gmail.com";
     public port = 587;
-    public user = "";
-    public password = "";
+    public user = "celso.jccl@gmail.com";
+    public password = "@Kurtkobeen1";
 }
 
 
