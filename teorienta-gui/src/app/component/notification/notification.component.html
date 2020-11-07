@@ -1,37 +1,35 @@
 <table>
     <tr>
-        <th>Nome &nbsp;&nbsp;&nbsp;</th>
-        <th>Email&nbsp;&nbsp;&nbsp;&nbsp;</th>
-        <th>Username&nbsp;&nbsp;&nbsp;</th>
+        <th>Título&nbsp;&nbsp;&nbsp;</th>
+        <th>Objetivo&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th>Fomentação&nbsp;&nbsp;&nbsp;</th>
+        <th>Categoria&nbsp;&nbsp;&nbsp;</th>
+        <th>Data de Submissão&nbsp;&nbsp;&nbsp;</th>
         <th>CNPJ&nbsp;&nbsp;&nbsp;</th>
         <th>CPF&nbsp;&nbsp;&nbsp;</th>
-        <th>Nome do Edital&nbsp;&nbsp;&nbsp;</th>
-        <th>Data de Submissão&nbsp;&nbsp;&nbsp;</th>
+        <th>Username&nbsp;&nbsp;&nbsp;</th>
+        <th>Email&nbsp;&nbsp;&nbsp;</th>
+        <th>CPF&nbsp;&nbsp;&nbsp;</th>
+        <th>CNPJ&nbsp;&nbsp;&nbsp;</th>
+        
     </tr>
 
-    <tr>
-        <td>Celso</td>
-        <td>jccl@cin.ufpe.br</td>
-        <td>jccl</td>
-        <td>105</td>
-        <td>0006</td>
-        <td>CNPQ</td>
-        <td>23/11/2021</td>
+    <tr *ngFor=" let notification of notifications">
+        <td>{{notification.titleAnnouncement}}</td>
+        <td>{{notification.objectiveAnnouncement}}</td>
+        <td>{{notification.fomentationAnnouncement}}</td>
+        <td>{{notification.categoryAnnouncement}}</td>
+        <td>{{notification.dateSubmissionAnnouncement}}</td>
+        <td>{{notification.cnpjAnnouncement}}</td>
+        <td>{{notification.cpfAnnouncement}}</td>
+        <td>{{notification.usernameUser}}</td>
+        <td>{{notification. emailUser}}</td>
+        <td>{{notification.cpfUser}}</td>
+        <td>{{notification.cnpjUser}}</td>
         <td>
             <button class="btn btn-primary">Escrever Projeto</button>
         </td>
         <br><br>
     </tr>
-    <tr>
-        <td>Celso</td>
-        <td>jccl@cin.ufpe.br</td>
-        <td>jccl</td>
-        <td>105</td>
-        <td>0006</td>
-        <td>CNPQ</td>
-        <td>23/11/2021</td>
-        <td>
-            <button class="btn btn-primary">Escrever Projeto</button>
-        </td>
-    </tr>
+    
 </table>

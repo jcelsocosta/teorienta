@@ -7,7 +7,7 @@ import {createNotification,deleteNotification,listNotification} from '../control
 import Notification from '../../provider/infrastructure/database/mongo/models/notification';
 
 router.post('/createNotification', async(req: express.Request, res:express.Response)=>{
-    console.log("id: "+req.body.idAnnouncement)
+   
     let newNotification = new Notification({
         idAnnouncement:req.body.idAnnouncement,
         titleAnnouncement: req.body.titleAnnouncement,
@@ -37,7 +37,6 @@ router.get('/notification',async(req: express.Request, res: express.Response)=>{
 
 router.delete('/delete/:objectId', async(req: express.Request, res: express.Response)=>{
     let {objectId} = req.params;
-    console.log(objectId)
     const response = await deleteNotification(objectId);
     res.send(response);
 })

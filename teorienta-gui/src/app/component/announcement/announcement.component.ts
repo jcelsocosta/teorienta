@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios'
 import {Announcement} from '../../common/announcement';
 import {AnnouncementService} from '../../services/announcement/announcement.service';
+
+
 @Component({
   selector: 'app-announcement',
   templateUrl: './announcement.component.html',

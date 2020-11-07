@@ -31,7 +31,6 @@ router.get("/announcements", async(req: express.Request,res:express.Response) =>
 
 router.delete("/delete/:objectId", async(req: express.Request, res: express.Response)=>{
     let {objectId} = req.params;
-    console.log(objectId);
     const reponse = await deleteAnnouncements(objectId);
     res.send(reponse);
 })

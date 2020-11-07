@@ -26,6 +26,7 @@ import { FeedUserComponent } from './component/feed-user/feed-user.component';
 import { LifeCycleComponent } from './component/life-cycle/life-cycle.component';
 import { NotificationComponent } from './component/notification/notification.component'
 import { AnnouncementService } from './services/announcement/announcement.service';
+import {NotificationService} from './services/notification/notification.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -68,7 +69,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot()
   ],
-  providers: [ValidateService, AuthService, AuthGuard, AdminGuard, AnnouncementService],
+  providers: [ValidateService, AuthService, AuthGuard, AdminGuard, AnnouncementService,NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

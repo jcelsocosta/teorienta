@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import {Announcement} from '../../common/announcement';
 import {AnnouncementService} from '../../services/announcement/announcement.service';
-
+import {User} from '../../common/user';
 @Component({
   selector: 'app-feed-announcement',
   templateUrl: './feed-announcement.component.html',
@@ -11,7 +11,9 @@ import {AnnouncementService} from '../../services/announcement/announcement.serv
 export class FeedAnnouncementComponent implements OnInit {
     announcement: Announcement = new Announcement();
     announcements: Announcement[] = [];
-
+    user: User = new User();
+    users: User[] = [];
+    
   constructor(private announcementServices: AnnouncementService) { 
   }
 
@@ -25,6 +27,7 @@ export class FeedAnnouncementComponent implements OnInit {
 
   loadUser(): any {
     let response = localStorage.getItem("user");
+    
     return response;
   }
   aplicarEdital(announcement: Announcement): void{
