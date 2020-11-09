@@ -1,0 +1,64 @@
+<!-- Card com Edital -->
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 20rem; margin: 10px;">
+            <div class="card-body">
+                <label>Id:&nbsp;</label><br>
+                <label>Títutlo:&nbsp;</label><br>
+                <label>Objetivo:&nbsp;</label><br>
+                <label>Fomentação:&nbsp;</label><br>
+                <label>Categoria:&nbsp;</label><br>
+                <label>Data de Submissão:&nbsp;</label><br>
+                <label>CNPJ:&nbsp;</label><br>
+                <label>CPF:&nbsp;</label><br>
+                <label>Url do Edital:&nbsp;<a [attr.href]=""></a></label><br>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Card com Empresa-->
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 20rem; margin: 10px;">
+            <div class="card-body">
+                <label>Name:&nbsp;</label><br>
+                <label>Email:&nbsp;</label><br>
+                <label>Cpf:&nbsp;</label><br>
+                <label>Cnpj:&nbsp;</label><br>
+                <label>Username:&nbsp;</label><br>
+                <label>Data de Submissão:&nbsp;</label><br>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Form de Questions-->
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+                <h3>Questões</h3>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <div *ngFor="let q of question; index as x;">
+                    <label>Questão {{ x || 0}}</label><br>
+                    <input type="text" > &nbsp;<br>
+                    <textarea></textarea><br>
+                    <button type="button" class="btn btn-secondary" (click)="removeQuestion()">X</button>
+                    <br>
+                </div>
+                <br><br>
+            </div>
+                <button type="button" class="btn btn-primary" (click)="addQuestion()">+</button>
+        </div>
+        <button type="button" class="btn btn-primary">Cadastrar</button>
+    </div>
+</div>
+
+
+
+

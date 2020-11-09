@@ -27,6 +27,7 @@ import { LifeCycleComponent } from './component/life-cycle/life-cycle.component'
 import { NotificationComponent } from './component/notification/notification.component'
 import { AnnouncementService } from './services/announcement/announcement.service';
 import {NotificationService} from './services/notification/notification.service';
+import { ProjectsComponent } from './component/projects/projects.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
   { path: 'send-email', component: SendEmailComponent, canActivate: [AdminGuard]},
   { path: 'feed-user', component: FeedUserComponent, canActivate:[AdminGuard]},
   { path: 'life-cycle', component: LifeCycleComponent, canActivate:[AuthGuard]},
-  { path: 'notification', component:NotificationComponent, canActivate:[AdminGuard] }
+  { path: 'notification', component:NotificationComponent, canActivate:[AdminGuard]},
+  { path: 'projects', component:ProjectsComponent, canActivate:[AdminGuard]}
 ]
 
 @NgModule({
@@ -58,7 +60,8 @@ const appRoutes: Routes = [
     SendEmailComponent,
     FeedUserComponent,
     LifeCycleComponent,
-    NotificationComponent
+    NotificationComponent,
+    ProjectsComponent
 
   ],
   imports: [

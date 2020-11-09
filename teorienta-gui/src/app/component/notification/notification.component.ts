@@ -22,4 +22,10 @@ export class NotificationComponent implements OnInit {
       );
   }
 
+  storeDataLocal(title:any, nome:any){
+    localStorage.setItem('title',title);
+    localStorage.setItem('username',nome);
+    
+  }
+
 }
