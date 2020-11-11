@@ -1,4 +1,4 @@
-import {IListNotificationRepository,ICreateNotificationRepository,IDeleteNotificationRepository} from '../usecase/repository/INotificationRepository';
+import {IListNotificationRepository,IListOneNotificationRepository,ICreateNotificationRepository,IDeleteNotificationRepository} from '../usecase/repository/INotificationRepository';
 
 import { ICreateAnnouncementsRepository, IListAnnouncementsRepository, IDeleteAnnouncementsRepository, IUpdateAnnouncementsRepository } from './repository/IAnnouncementsRepository'
 
@@ -14,6 +14,12 @@ export class CreateNotificationUseCase {
     }
 }
 
+export class ListOneNotificationUseCase{
+    constructor( private repository: IListOneNotificationRepository){}
+    async listOneNotification(objectId: any){
+        return await this.repository.listOneNotification(objectId);
+    }
+}
 export class ListNotificationUseCase {
     constructor(
         private repository: IListNotificationRepository

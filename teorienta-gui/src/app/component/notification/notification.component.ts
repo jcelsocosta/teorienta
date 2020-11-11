@@ -22,10 +22,27 @@ export class NotificationComponent implements OnInit {
       );
   }
 
-  storeDataLocal(title:any, nome:any){
-    localStorage.setItem('title',title);
-    localStorage.setItem('username',nome);
+  storeDataLocal(notification:any){
+    const n = new Notification()
+    let notify = {
+      titleAnnouncement: notification.titleAnnouncement,
+      objectiveAnnouncement: notification.objectiveAnnouncement,
+      fomentationAnnouncement: notification.fomentationAnnouncement,
+      categoryAnnouncement: notification.categoryAnnouncement,
+      dateSubmissionAnnouncement: notification.dateSubmissionAnnouncement,
+      cnpjAnnouncement: notification.cnpjAnnouncement,
+      cpfAnnouncement: notification.cpfAnnouncement,
+      urlDocumentAnnouncement: notification.urlDocumentAnnouncement,
+      availableAnnouncement: notification.availableAnnouncement,
     
+      nameUser: notification.nameUser,
+      emailUser: notification.emailUser,
+      cpfUser: notification.cpfUser,
+      cnpjUser: notification.cnpjUser,
+      usernameUser: notification.usernameUser
+    }
+    
+    localStorage.setItem('notify',JSON.stringify(notify));
   }
 
 }

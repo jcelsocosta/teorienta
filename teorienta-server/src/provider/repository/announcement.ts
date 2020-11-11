@@ -1,5 +1,5 @@
-import { ICreateAnnouncementsRepository, IListAnnouncementsRepository, IDeleteAnnouncementsRepository, IUpdateAnnouncementsRepository } from '../../usecase/repository/IAnnouncementsRepository'
-import { createAnnouncement, listAnnouncements, deleteAnnouncements, updateAnnouncements } from '../infrastructure/database/mongo/announcement'
+import { ICreateAnnouncementsRepository, IListAnnouncementsRepository, IListOneAnnouncementsRepository,IDeleteAnnouncementsRepository, IUpdateAnnouncementsRepository } from '../../usecase/repository/IAnnouncementsRepository'
+import { createAnnouncement, listAnnouncements,listOneAnnouncements, deleteAnnouncements, updateAnnouncements } from '../infrastructure/database/mongo/announcement'
 
 export class CreateAnnouncementUseCaseRepository implements ICreateAnnouncementsRepository{
     async createAnnouncement(announcement: any) {
@@ -12,6 +12,13 @@ export class ListAnnouncementsUseCaseRepository implements IListAnnouncementsRep
         return await listAnnouncements()
     }
 }
+
+export class ListOneAnnouncementsUseCaseRepository implements IListOneAnnouncementsRepository{
+    async listOneAnnouncements(objectId: any){
+        return await listOneAnnouncements(objectId);
+    }
+}
+
 
 export class DeleteAnnouncementsUseCaseRepository implements IDeleteAnnouncementsRepository{
     async deleteAnnouncements(objectId: any){

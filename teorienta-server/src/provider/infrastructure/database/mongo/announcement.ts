@@ -47,6 +47,14 @@ export async function listAnnouncements() {
         */
     return response;
 }
+
+export async function listOneAnnouncements(objectId: any){
+    let response: any;
+    response = await Announcement.find({"title":objectId});
+    return response;
+}
+
+
 export async function deleteAnnouncements(objectId: any){
     let response: any;
     

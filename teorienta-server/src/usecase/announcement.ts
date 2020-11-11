@@ -1,4 +1,4 @@
-import { ICreateAnnouncementsRepository, IListAnnouncementsRepository, IDeleteAnnouncementsRepository, IUpdateAnnouncementsRepository } from './repository/IAnnouncementsRepository'
+import { ICreateAnnouncementsRepository, IListAnnouncementsRepository,IListOneAnnouncementsRepository, IDeleteAnnouncementsRepository, IUpdateAnnouncementsRepository } from './repository/IAnnouncementsRepository'
 
 export class CreateAnnouncementUseCase {
     constructor(
@@ -20,6 +20,14 @@ export class ListAnnouncementsUseCase {
     async listAnnouncements() {
         
         return await this.repository.listAnnouncements();
+    }
+}
+
+export class ListOneAnnouncementsUseCase{
+    constructor(private repository: IListOneAnnouncementsRepository){}
+
+    async listOneAnnouncements(objectId: any){
+        return await this.repository.listOneAnnouncements(objectId);
     }
 }
 

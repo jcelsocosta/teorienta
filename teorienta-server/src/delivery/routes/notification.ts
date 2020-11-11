@@ -5,6 +5,7 @@ export  const router = express.Router();
 import {createNotification,deleteNotification,listNotification} from '../controller/notification'
 
 import Notification from '../../provider/infrastructure/database/mongo/models/notification';
+import { listOneNotification } from '../../provider/infrastructure/database/mongo/notification';
 
 router.post('/createNotification', async(req: express.Request, res:express.Response)=>{
    
@@ -34,7 +35,12 @@ router.get('/notification',async(req: express.Request, res: express.Response)=>{
     const response = await listNotification();
     res.send(response);
 })
+router.get('/oneNotification/:objectId', async(req: express.Request, res: express.Response)=>{
+    let {objectId} = req.params
+    const response = await listOneNotification(objectId);
+    res.send(response);
 
+})
 router.delete('/delete/:objectId', async(req: express.Request, res: express.Response)=>{
     let {objectId} = req.params;
     const response = await deleteNotification(objectId);

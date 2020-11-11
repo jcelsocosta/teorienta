@@ -1,6 +1,6 @@
-import {CreateNotificationUseCaseRepository,DeleteNotificationUseCaseRepository,ListNotificationUseCaseRepository} from '../../provider/repository/notification';
+import {CreateNotificationUseCaseRepository,DeleteNotificationUseCaseRepository,ListOneNotificationUseCaseRepository,ListNotificationUseCaseRepository} from '../../provider/repository/notification';
 
-import {CreateNotificationUseCase,DeleteNotificationUseCase,ListNotificationUseCase} from '../../usecase/notification';
+import {CreateNotificationUseCase,DeleteNotificationUseCase,ListNotificationUseCase,ListOneNotificationUseCase} from '../../usecase/notification';
 
 
 
@@ -17,6 +17,12 @@ export async function listNotification() {
     const usecase = new ListNotificationUseCase(repository)
 
     return await usecase.listNotification()
+}
+export async function listOneNotification(objectId: any){
+
+    const repository = new ListOneNotificationUseCaseRepository()
+    const usecase = new ListOneNotificationUseCase(repository)
+    return await usecase.listOneNotification(objectId);
 }
 
 export async function deleteNotification(objectId: any){

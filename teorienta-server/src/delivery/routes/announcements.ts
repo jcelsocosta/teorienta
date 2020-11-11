@@ -1,8 +1,8 @@
 import express from 'express'
 export const router = express.Router()
 
-import { createAnnouncement, listAnnouncements, deleteAnnouncements } from '../controller/announcement'
-import { json } from 'body-parser'
+import { createAnnouncement, listAnnouncements,listOneAnnouncements, deleteAnnouncements } from '../controller/announcement'
+
 import Announcement from '../../provider/infrastructure/database/mongo/models/announcement';
 import { updateAnnouncements } from '../../provider/infrastructure/database/mongo/announcement';
 
@@ -29,11 +29,19 @@ router.get("/announcements", async(req: express.Request,res:express.Response) =>
     res.send(response);
 })
 
+router.get("/OneAnnouncements/:objectId", async(req: express.Request, res: express.Response)=>{
+    let {objectId} = req.params;
+    const response = await listOneAnnouncements(objectId);
+    res.send(response);
+
+})
+
 router.delete("/delete/:objectId", async(req: express.Request, res: express.Response)=>{
     let {objectId} = req.params;
     const reponse = await deleteAnnouncements(objectId);
     res.send(reponse);
 })
+
 router.put("/update", async(req:express.Request, res: express.Response)=>{
     let newAnnouncement = new Announcement({
         _id: req.body._id,
@@ -51,44 +59,6 @@ router.put("/update", async(req:express.Request, res: express.Response)=>{
     const response = await updateAnnouncements(newAnnouncement);
     res.send(response);
 })
-/*
-// adding a announcement to the database
-router.post('/createAnnouncement', async (req, res, next) => {
-
-    let title = req.body.title
-    let objective = req.body.objective
-    let fomentation = req.body.fomentation
-    let category =  req.body.category
-    let dateSubmission = req.body.dateSubmission
-    let cnpj = req.body.cnpj
-    let cpf = req.body.cpf
-    let urlDocument = req.body.urlDocument
-    let available = req.body.available
-
-    console.log({
-        title,
-        objective, 
-        fomentation , 
-        category, 
-        dateSubmission,
-        cnpj,
-        cpf, 
-        urlDocument, 
-        available 
-    })
-
-    const response = await createAnnouncement({ title,objective, fomentation , category, dateSubmission, cnpj, cpf, urlDocument, available })
-
-    res.send(response)
-})
-
-router.post("/announcements", async (req, res, next) => {
-
-    const response = await listAnnouncements()
-
-    res.send(response)
-})
-*/
 
 
 export default router

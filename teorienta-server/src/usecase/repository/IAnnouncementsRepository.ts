@@ -6,6 +6,9 @@ export interface IListAnnouncementsRepository {
     listAnnouncements(): Promise<any>
 }
 
+export interface IListOneAnnouncementsRepository{
+    listOneAnnouncements(objectId: any): Promise<any>
+}
 export interface IDeleteAnnouncementsRepository{
     deleteAnnouncements(objectId: any): Promise<any>
 }

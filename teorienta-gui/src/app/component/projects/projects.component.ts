@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Notification} from '../../common/notification';
+import { Announcement } from '../../common/announcement';
+import {Observable} from 'rxjs';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -11,14 +13,20 @@ export class ProjectsComponent implements OnInit {
   answer: String;
   question: Array<any>
 
+  notification: Notification = new Notification();
+  notifications: Notification[] = [];
+  
   constructor() {
     this.x = 0;
     this.question = [this.x];
    }
 
   ngOnInit(): void {
-    const al = localStorage.getItem('title');
-   
+    this.loadStoreData()
+  }
+   loadStoreData(): void{
+    const notify = localStorage.getItem('notify') as unknown as Notification
+    this.notifications.push(notify);
   }
 
   addQuestion(){

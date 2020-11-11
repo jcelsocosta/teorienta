@@ -49,3 +49,9 @@ export async function listNotification(){
     response = await Notification.find();
     return response;
 }
+
+export async function listOneNotification(objectId: any){
+    let response: any;
+    response = await Notification.find({"titleAnnouncement":objectId})
+    return response;   
+}
