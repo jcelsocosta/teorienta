@@ -21,6 +21,14 @@ export class AnnouncementService {
                    );
       }
 
+    getOneAnnouncements(objectId: any): Observable<Announcement[]>{
+      const taUrlGet = 'http://localhost:3000/announcements/oneAnnouncements';
+      const url = `${taUrlGet}/${objectId}`
+      return this.http.get<Announcement[]>(url)
+            .pipe(
+              retry(2)
+            );
+    }
     
     postAnnouncements(anouncement: Announcement): Observable<Announcement>{
 

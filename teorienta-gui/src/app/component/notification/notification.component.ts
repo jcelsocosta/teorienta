@@ -23,6 +23,7 @@ export class NotificationComponent implements OnInit {
   }
 
   storeDataLocal(notification:any){
+    const objectId = notification.titleAnnouncement;
     const n = new Notification()
     let notify = {
       titleAnnouncement: notification.titleAnnouncement,
@@ -42,7 +43,7 @@ export class NotificationComponent implements OnInit {
       usernameUser: notification.usernameUser
     }
     
-    localStorage.setItem('notify',JSON.stringify(notify));
+    localStorage.setItem('objectId',objectId);
   }
 
 }

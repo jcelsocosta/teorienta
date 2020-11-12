@@ -23,6 +23,15 @@ export class NotificationService {
                    );
       }
 
+    getOneNotification(objectId: any): Observable<Notification[]>{
+      const taUrlget = 'http://localhost:3000/notification/oneNotification';
+      const url = `${taUrlget}/${objectId}`;
+      return this.http.get<Notification[]>(url)
+              .pipe(
+                retry(2)
+              );
+    }
+    
     postNotification(notification: Notification): Observable<Notification>{
 
       return this.http.post<any>(this.taURL+"/notification/createNotification",notification,{headers:this.headers})

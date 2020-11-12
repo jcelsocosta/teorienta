@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Notification} from '../../common/notification';
 import { Announcement } from '../../common/announcement';
 import {Observable} from 'rxjs';
+import {NotificationService} from '../../services/notification/notification.service';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -16,17 +17,25 @@ export class ProjectsComponent implements OnInit {
   notification: Notification = new Notification();
   notifications: Notification[] = [];
   
-  constructor() {
+  constructor(private notificationService: NotificationService) {
     this.x = 0;
     this.question = [this.x];
    }
 
   ngOnInit(): void {
-    this.loadStoreData()
+    this.getOneNotification();
   }
-   loadStoreData(): void{
-    const notify = localStorage.getItem('notify') as unknown as Notification
-    this.notifications.push(notify);
+
+  getOneNotification(){
+    const objectId = this.loadId();
+    this.notificationService.getOneNotification(objectId)
+      .subscribe(
+        noti => {this.notifications = noti}
+      );
+  }
+  loadId(): String{
+    const obj = localStorage.getItem('objectId');
+    return obj;
   }
 
   addQuestion(){

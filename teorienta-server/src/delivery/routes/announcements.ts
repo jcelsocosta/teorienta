@@ -29,7 +29,7 @@ router.get("/announcements", async(req: express.Request,res:express.Response) =>
     res.send(response);
 })
 
-router.get("/OneAnnouncements/:objectId", async(req: express.Request, res: express.Response)=>{
+router.get("/oneAnnouncements/:objectId", async(req: express.Request, res: express.Response)=>{
     let {objectId} = req.params;
     const response = await listOneAnnouncements(objectId);
     res.send(response);
