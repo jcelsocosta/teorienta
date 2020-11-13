@@ -4,7 +4,7 @@ import Announcement from '../mongo/models/announcement';
 
 export async function createNotification(notitication: any){
 
-    console.log("infra: "+notitication._id)
+    
     let arrayCount: any[] = []
     let len: any;
     arrayCount = await Notification.find();

@@ -1,5 +1,5 @@
 import { ICreateNotificationRepository,IListOneNotificationRepository,IDeleteNotificationRepository,IListNotificationRepository} from '../../usecase/repository/INotificationRepository'
-import {createNotification,deleteNotification,listNotification } from '../infrastructure/database/mongo/notification';
+import {createNotification,deleteNotification,listNotification,listOneNotification } from '../infrastructure/database/mongo/notification';
 
 export class CreateNotificationUseCaseRepository implements ICreateNotificationRepository{
     async createNotification(notification: any) {
@@ -15,7 +15,7 @@ export class ListNotificationUseCaseRepository implements IListNotificationRepos
 
 export class ListOneNotificationUseCaseRepository implements IListOneNotificationRepository{
     async listOneNotification(objectId: any){
-        return await this.listOneNotification(objectId);
+        return await listOneNotification(objectId);
     }
 }
 

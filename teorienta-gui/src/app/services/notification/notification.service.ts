@@ -32,9 +32,9 @@ export class NotificationService {
               );
     }
     
-    postNotification(notification: Notification): Observable<Notification>{
-
-      return this.http.post<any>(this.taURL+"/notification/createNotification",notification,{headers:this.headers})
+    postNotification(notification: any): Observable<Notification>{
+      const taUrlPost = 'http://localhost:3000/notification/createNotification';
+      return this.http.post<any>(taUrlPost,notification,{headers:this.headers})
         .pipe(
           retry(2)
         );

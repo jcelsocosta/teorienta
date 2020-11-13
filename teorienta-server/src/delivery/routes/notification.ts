@@ -2,13 +2,12 @@ import express from 'express';
 export  const router = express.Router();
 
 
-import {createNotification,deleteNotification,listNotification} from '../controller/notification'
+import {createNotification,deleteNotification,listNotification,listOneNotification} from '../controller/notification'
 
 import Notification from '../../provider/infrastructure/database/mongo/models/notification';
-import { listOneNotification } from '../../provider/infrastructure/database/mongo/notification';
 
-router.post('/createNotification', async(req: express.Request, res:express.Response)=>{
-   
+router.post('/createNotification', async(req: express.Request, res:express.Response) => {
+       
     let newNotification = new Notification({
         idAnnouncement:req.body.idAnnouncement,
         titleAnnouncement: req.body.titleAnnouncement,

@@ -32,6 +32,7 @@ export class ProjectsComponent implements OnInit {
       .subscribe(
         noti => {this.notifications = noti}
       );
+      
   }
   loadId(): String{
     const obj = localStorage.getItem('objectId');
