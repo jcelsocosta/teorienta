@@ -34,6 +34,7 @@ export class AnnouncementComponent implements OnInit {
   }
 
   subscribeAnnouncement(announcement: Announcement){
+    alert(announcement.question)
     this.announcementServices.postAnnouncements(announcement)
       .subscribe(
         announ => { 

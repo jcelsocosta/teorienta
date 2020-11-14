@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormQuestionsComponent implements OnInit {
   x: number;
-  answer: String;
+  question: String;
   questoes: Array<any>;
   num: number;
+  numLength: number;
+  perguntas: String;
+  perguntasArray: Array<any>;
 
   constructor() { 
     this.x = 0;
@@ -19,9 +22,22 @@ export class FormQuestionsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addCampo(): void {
+  readPergunta(pergunta: any):void{
+    this.perguntasArray = pergunta.split("\n");
+    for(let i=0;i<this.perguntasArray.length;i++){
+      alert("perguntas: "+this.perguntasArray[i]);
+    }
+  }
+  readNumber(len: any): void{
+    this.questoes.length = len;
+    alert("len1: "+len)
+    alert("len: "+this.questoes.length);
+  }
+  addCampo(question: any): void {
+    alert(question)
+    this.question="";
     this.x = this.x + 1;
-    this.questoes.push(this.x);
+    this.questoes.push(question);
   }
   removeCampo(): void {
     this.questoes.pop();

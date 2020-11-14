@@ -37,7 +37,11 @@ const AnnouncementSchema: Schema = new Schema({
     },
     available: {
         type: Boolean
+    },
+    question: {
+         type: String 
     }
+
 
 });
 

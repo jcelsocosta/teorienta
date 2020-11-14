@@ -9,14 +9,14 @@ export class Announcement{
     cpf: String;
     urlDocument: String;
     available: boolean;
-
+    question: String;
 
     constructor () {
         this.clean();
     }
 
     clean(){
-        
+
         this.title = "";
         this.objective = "";
         this.fomentation = 0;
@@ -26,6 +26,7 @@ export class Announcement{
         this.cpf = "";
         this.urlDocument = "";
         this.available = false;
+        this.question = "";
     }
     copyAnnouncement(announcement: Announcement){
         this._id = announcement._id;
@@ -38,5 +39,6 @@ export class Announcement{
         this.cpf = announcement.cpf;
         this.urlDocument = announcement.urlDocument;
         this.available  = announcement.available;
+        this.question = announcement.question;
     }
 }

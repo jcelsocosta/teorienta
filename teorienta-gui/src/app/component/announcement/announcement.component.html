@@ -81,10 +81,18 @@
                         <label for="inputDocumentLinkAnnoucement">Url do Edital</label>
                         <input type="text" [(ngModel)]="announcement.urlDocument" name="urlDocument" class="form-control" id="inputDocumentLinkAnnoucement" placeholder="Insira o link para o documento">
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="textAreaQuestionAnnouncement">Questões</label>
+                        <textarea type="text" rows="5" cols="50" [(ngModel)]="announcement.question" name="textAreaQuestionAnnouncement"></textarea>
+                        
+                    </div> 
+
                     <div class="form-group form-check">
                         <input type="checkbox" [(ngModel)]="announcement.available" name="available" class="form-check-input" id="editalAvailable">
                         <label class="form-check-label" for="editalAvailable">Disponível</label>
                     </div>
+                   
                 </form>
             </div>
             <div class="modal-footer">

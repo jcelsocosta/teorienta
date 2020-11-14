@@ -5,6 +5,7 @@ import { createAnnouncement, listAnnouncements,listOneAnnouncements, deleteAnnou
 
 import Announcement from '../../provider/infrastructure/database/mongo/models/announcement';
 import { updateAnnouncements } from '../../provider/infrastructure/database/mongo/announcement';
+import announcement from '../../provider/infrastructure/database/mongo/models/announcement';
 
 
 router.post('/createAnnouncement',async(req: express.Request,res: express.Response)=>{
@@ -17,7 +18,8 @@ router.post('/createAnnouncement',async(req: express.Request,res: express.Respon
         cnpj: req.body.cnpj,
         cpf: req.body.cpf,
         urlDocument: req.body.urlDocument,
-        available: req.body.available
+        available: req.body.available,
+        question: req.body.question
     })
     const response = await createAnnouncement(newAnnouncement);
 

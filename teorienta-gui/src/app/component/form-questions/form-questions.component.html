@@ -1,6 +1,11 @@
 <div class="container">
     <div class="d-flex justify-content-center h-100">
-        <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="textAreaQuestionAnnouncement">Questões</label>
+                <textarea type="text" rows="5" cols="50" [(ngModel)]="perguntas" name="textAreaQuestionAnnouncement"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="readPergunta(perguntas)">+</button>
             <div class="card-header">
                     <h3>Questões</h3>
             </div>
@@ -8,13 +13,13 @@
                 <div class="form-group">
                     <div *ngFor="let q of questoes; index as x">
                         <label>Questão {{ x || 0}}</label><br>
-                        <input type="text" > &nbsp;
+                        <input type="text" [(ngModel)]="question"> &nbsp;
                         <button type="button" class="btn btn-secondary" (click)="removeCampo()">X</button>
                         <br>
                     </div>
                     <br><br>
                 </div>
-                    <button type="button" class="btn btn-primary" (click)="addCampo()">+</button>
+                    <button type="button" class="btn btn-primary" (click)="addCampo(question)">+</button>
             </div>
             <button type="button" class="btn btn-primary">Cancelar</button><br><br>
             <button type="button" class="btn btn-primary">Cadastrar</button>

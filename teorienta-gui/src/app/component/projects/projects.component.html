@@ -29,43 +29,15 @@
     </div>
 </div>
 
-<!-- Card com Empresa
+<!-- Form de Questions-->
 <div class="container">
     <div class="row">
-        <div class="card" style="width: 20rem; margin: 10px;" *ngFor="let notification of notifications">
+        <div class="card" style="width: 20rem; margin: 10px;" *ngFor="let announcement of announcements">
             <div class="card-body">
-                <label>Name:&nbsp;{{notification.nameUser}}</label><br>
-                <label>Email:&nbsp;{{notification.emailUser}}</label><br>
-                <label>Cpf:&nbsp;{{notification.cpfUser}}</label><br>
-                <label>Cnpj:&nbsp;{{notification.cnpjUser}}</label><br>
-                <label>Username:&nbsp;{{notification.usernameUser}}</label><br>
-                
+                <label>{{announcement.question}}</label>
+                <textarea type="text" rows="5" cols="50" name="textAreaQuestionAnnouncement"></textarea>
             </div>
         </div>
-    </div>
-</div>
--->
-<!-- Form de Questions-->
-
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-                <h3>Questões</h3>
-        </div>
-        <div class="card-body">
-            <div class="form-group">
-                <div *ngFor="let q of question; index as x;">
-                    <label>Questão {{ x || 0}}</label><br>
-                    <input type="text" > &nbsp;<br>
-                    <textarea></textarea><br>
-                    <button type="button" class="btn btn-secondary" (click)="removeQuestion()">X</button>
-                    <br>
-                </div>
-                <br><br>
-            </div>
-                <button type="button" class="btn btn-primary" (click)="addQuestion()">+</button>
-        </div>
-        <button type="button" class="btn btn-primary">Cadastrar</button>
     </div>
 </div>
 

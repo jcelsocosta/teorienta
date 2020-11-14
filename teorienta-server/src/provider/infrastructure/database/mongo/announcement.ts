@@ -17,7 +17,8 @@ export async function createAnnouncement(announcement: any) {
         cnpj: announcement.cnpj,
         cpf: announcement.cpf,
         urlDocument: announcement.urlDocument,
-        available: announcement.available
+        available: announcement.available,
+        question: announcement.question
     });
 
     let response: any;
@@ -74,7 +75,8 @@ export async function updateAnnouncements(announcement: any){
         cnpj: announcement.cnpj,
         cpf: announcement.cpf,
         urlDocument: announcement.urlDocument,
-        available: announcement.available
+        available: announcement.available,
+        question: announcement.question
     };
     let response: any
     response = await Announcement.update({"_id":ObjectId},
@@ -86,7 +88,8 @@ export async function updateAnnouncements(announcement: any){
     "cnpj": newAnnouncement.cnpj,
     "cpf": newAnnouncement.cpf,
     "urlDocument": newAnnouncement.urlDocument,
-    "available": newAnnouncement.available
+    "available": newAnnouncement.available,
+    "question": newAnnouncement.question
     });
     return response;
 }
