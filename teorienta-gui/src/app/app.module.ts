@@ -10,7 +10,6 @@ import { AnnouncementComponent } from './component/announcement/announcement.com
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { HomeComponent } from './component/home/home.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { ProfileComponent } from './component/profile/profile.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 
@@ -35,7 +34,6 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'announcements', component: AnnouncementComponent, canActivate: [AuthGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'feed-announcement', component: FeedAnnouncementComponent, canActivate: [AuthGuard] },
   { path: 'send-email', component: SendEmailComponent },
   { path: 'feed-user', component: FeedUserComponent, canActivate: [AdminGuard] },
@@ -50,7 +48,6 @@ const appRoutes: Routes = [
     DashboardComponent,
     HomeComponent,
     NavbarComponent,
-    ProfileComponent,
     RegisterComponent,
     LoginComponent,
     FeedAnnouncementComponent,

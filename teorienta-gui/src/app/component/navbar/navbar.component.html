@@ -10,9 +10,6 @@
             <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link" [routerLink]="['/dashboard']" style="color: #EEE7D4;">Dashboard</a></li>
             <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link" [routerLink]="['/announcements']" style="color: #EEE7D4;">Editais</a></li>
             <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link" [routerLink]="['/feed-announcement']" style="color: #EEE7D4;">Listas Editais</a></li>
-            <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link" [routerLink]="['/profile']" style="color: #EEE7D4;">Profile</a></li>
-            <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link" [routerLink]="['/form-questions']" style="color: #EEE7D4;">Questions</a></li>
-            <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link" [routerLink]="['/send-email']" style="color: #EEE7D4;">Emails</a></li>
             
             <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link" [routerLink]="['/login']" style="color: #EEE7D4;">Login</a></li>
             <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item"><a class="nav-link" [routerLink]="['/register']" style="color: #EEE7D4;">Cadastrar</a></li>
