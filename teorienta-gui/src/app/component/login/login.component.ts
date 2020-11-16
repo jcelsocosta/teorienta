@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
   }
 
   onLoginSubmit() {
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    
+
     const user = {
       username: this.username,
       password: this.password
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       const body = response.data
       if (body.success) {
         this.authService.storeUserData(body.token, body.user)
-        this.flashMessage.show('You are now logged in', { cssClass: 'alert-success', timeout: 5000 })
+        this.flashMessage.show('Você está logado.', { cssClass: 'alert-success', timeout: 5000 })
         this.router.navigate(['/dashboard'])
       } else {
         this.flashMessage.show(body.msg, { cssClass: 'alert-danger', timeout: 5000 })

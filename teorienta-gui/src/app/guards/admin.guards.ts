@@ -9,7 +9,6 @@ export class AdminGuard implements CanActivate {
         private authService: AuthService,
         private router: Router, 
         private flashMessage: FlashMessagesService) {
-
     }
 
     canActivate() {

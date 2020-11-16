@@ -28,7 +28,7 @@ export class AuthService {
     return await axios({
       method: "POST",
       url: 'http://localhost:3000/users/authenticate',
-      data: 
+      data:
         user
       ,
       headers: {
@@ -62,12 +62,13 @@ export class AuthService {
   }
 
   isUserAdmin() {
-    return this.user.userType == 1
+    return this.user && this.user.userType == 1
   }
 
   loggedIn() {
     const helper = new JwtHelperService()
-    return !helper.isTokenExpired(this.authToken)
+    const token = localStorage.getItem('id_token')
+    return !helper.isTokenExpired(token)
   }
 
   logout() {

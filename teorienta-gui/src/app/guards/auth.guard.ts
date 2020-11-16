@@ -15,15 +15,7 @@ export class AuthGuard implements CanActivate {
         if (this.authService.loggedIn()) {
             return true
         }
-        this.router.navigate(['/login'])
-        return false
-    }
-
-    canActivateAdmin() {
-        if (this.authService.isUserAdmin()) {
-            return true
-        }
-        this.flashMessage.show("Esta página é restrita para administradores", { cssClass: 'alert-danger', timeout: 5000 })
+        this.flashMessage.show("Esta página é restrita para clientes", { cssClass: 'alert-danger', timeout: 5000 })
         this.router.navigate(['/login'])
         return false
     }

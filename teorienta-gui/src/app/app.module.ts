@@ -26,7 +26,7 @@ import { FeedUserComponent } from './component/feed-user/feed-user.component';
 import { LifeCycleComponent } from './component/life-cycle/life-cycle.component';
 import { NotificationComponent } from './component/notification/notification.component'
 import { AnnouncementService } from './services/announcement/announcement.service';
-import {NotificationService} from './services/notification/notification.service';
+import { NotificationService } from './services/notification/notification.service';
 import { ProjectsComponent } from './component/projects/projects.component';
 
 const appRoutes: Routes = [
@@ -34,15 +34,15 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'announcements', component: AnnouncementComponent, canActivate: [AdminGuard] },
+  { path: 'announcements', component: AnnouncementComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'feed-announcement', component: FeedAnnouncementComponent, canActivate: [AuthGuard]},
-  { path: 'form-questions', component: FormQuestionsComponent, canActivate: [AuthGuard]},
-  { path: 'send-email', component: SendEmailComponent, canActivate: [AdminGuard]},
-  { path: 'feed-user', component: FeedUserComponent, canActivate:[AdminGuard]},
-  { path: 'life-cycle', component: LifeCycleComponent, canActivate:[AuthGuard]},
-  { path: 'notification', component:NotificationComponent, canActivate:[AdminGuard]},
-  { path: 'projects', component:ProjectsComponent, canActivate:[AdminGuard]}
+  { path: 'feed-announcement', component: FeedAnnouncementComponent, canActivate: [AuthGuard] },
+  { path: 'form-questions', component: FormQuestionsComponent, canActivate: [AuthGuard] },
+  { path: 'send-email', component: SendEmailComponent },
+  { path: 'feed-user', component: FeedUserComponent, canActivate: [AdminGuard] },
+  { path: 'life-cycle', component: LifeCycleComponent },
+  { path: 'notification', component: NotificationComponent, canActivate: [AdminGuard] },
+  { path: 'projects', component: ProjectsComponent, canActivate: [AdminGuard] }
 ]
 
 @NgModule({
@@ -72,7 +72,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot()
   ],
-  providers: [ValidateService, AuthService, AuthGuard, AdminGuard, AnnouncementService,NotificationService],
+  providers: [ValidateService, AuthService, AuthGuard, AdminGuard, AnnouncementService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
