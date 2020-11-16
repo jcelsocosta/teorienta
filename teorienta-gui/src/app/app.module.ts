@@ -28,6 +28,7 @@ import { NotificationComponent } from './component/notification/notification.com
 import { AnnouncementService } from './services/announcement/announcement.service';
 import { NotificationService } from './services/notification/notification.service';
 import { ProjectsComponent } from './component/projects/projects.component';
+import { EmailService } from './services/email/email.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -72,7 +73,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot()
   ],
-  providers: [ValidateService, AuthService, AuthGuard, AdminGuard, AnnouncementService, NotificationService],
+
+  providers: [ValidateService, AuthService, AuthGuard, AdminGuard, AnnouncementService,NotificationService, EmailService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

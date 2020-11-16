@@ -1,18 +1,18 @@
 <form>
     <div class="form-group">
         <label for="formControlEmail">Endereco de Email</label>
-        <input type="email" [(ngModel)]="to" name="to" class="form-control" id="formControlEmail" placeholder="celso@gmail.com">
+        <input type="email" [(ngModel)]="email.to" name="to" class="form-control" id="formControlEmail" placeholder="celso@gmail.com">
     </div>
 
     <div class="form-group">
         <label for="formControlSubject">Assunto</label>
-        <input type="text" [(ngModel)]="subject" name="subject" class="form-control" id="formControlSubject" placeholder="Assunto">
+        <input type="text" [(ngModel)]="email.subject" name="subject" class="form-control" id="formControlSubject" placeholder="Assunto">
     </div>
 
     <div class="form-group">
         <label for="formTexto">Texto</label>
-        <textarea [(ngModel)]="message" name="message" class="form-control" id="formTexto" rows="5"></textarea>
+        <textarea [(ngModel)]="email.message" name="message" class="form-control" id="formTexto" rows="5"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary" (click)="enviarEmail()">Enviar</button>
+    <button type="submit" class="btn btn-primary" (click)="sendEmail(email)">Enviar</button>
 </form>
