@@ -20,10 +20,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages'
 import { AuthGuard } from './guards/auth.guard'
 import { AdminGuard } from './guards/admin.guards';
 import { FeedAnnouncementComponent } from './component/feed-announcement/feed-announcement.component';
-import { FormQuestionsComponent } from './component/form-questions/form-questions.component';
 import { SendEmailComponent } from './component/send-email/send-email.component';
 import { FeedUserComponent } from './component/feed-user/feed-user.component';
-import { LifeCycleComponent } from './component/life-cycle/life-cycle.component';
 import { NotificationComponent } from './component/notification/notification.component'
 import { AnnouncementService } from './services/announcement/announcement.service';
 import { NotificationService } from './services/notification/notification.service';
@@ -38,10 +36,8 @@ const appRoutes: Routes = [
   { path: 'announcements', component: AnnouncementComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'feed-announcement', component: FeedAnnouncementComponent, canActivate: [AuthGuard] },
-  { path: 'form-questions', component: FormQuestionsComponent, canActivate: [AuthGuard] },
   { path: 'send-email', component: SendEmailComponent },
   { path: 'feed-user', component: FeedUserComponent, canActivate: [AdminGuard] },
-  { path: 'life-cycle', component: LifeCycleComponent },
   { path: 'notification', component: NotificationComponent, canActivate: [AdminGuard] },
   { path: 'projects', component: ProjectsComponent, canActivate: [AdminGuard] }
 ]
@@ -57,10 +53,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     LoginComponent,
     FeedAnnouncementComponent,
-    FormQuestionsComponent,
     SendEmailComponent,
     FeedUserComponent,
-    LifeCycleComponent,
     NotificationComponent,
     ProjectsComponent
 
