@@ -8,7 +8,7 @@ import { Email } from '../../common/email';
   styleUrls: ['./send-email.component.css']
 })
 export class SendEmailComponent implements OnInit {
-  email: Email = new Email();
+  email: Email;
   to: String;
   subject: String;
   message: String;
@@ -23,8 +23,8 @@ export class SendEmailComponent implements OnInit {
 
     sendEmail(email: Email):any{
     
-    this.emailService.postEmail(email)
-      .subscribe();
+      this.emailService.postEmail(email)
+        .subscribe();
       email.clean();
   }
   

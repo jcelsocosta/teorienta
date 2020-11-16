@@ -14,4 +14,7 @@
         <td>{{users.cnpj}}</td>
         <td>{{users.cpf}}</td>
     </tr>
+    <tr *ngFor="let aux of usersAux">
+        <td>{{aux.email}}</td>
+    </tr>
 </table>

@@ -4,8 +4,10 @@ export class Email{
     message: String;
 
 
-    constructor(){
-        this.clean();
+    constructor(to:String,subject:String,message:String){
+        this.to = to;
+        this.subject = subject;
+        this.message = message;
     }
 
     clean(){
@@ -13,5 +15,11 @@ export class Email{
         this.subject = "";
         this.message = "";
     }
+    copy(to:String,subject:String,message:String){
+        this.to = to;
+        this.subject = subject;
+        this.message = message;
+    }
 
+    
 } 

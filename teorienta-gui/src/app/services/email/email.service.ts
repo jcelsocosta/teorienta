@@ -7,7 +7,7 @@ import { Email } from '../../common/email';
 @Injectable()
 export class EmailService{
 
-    email: Email = new Email();
+    email: Email;
 
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
     private taURL = 'http://localhost:3000';
@@ -17,7 +17,7 @@ export class EmailService{
     }
 
     postEmail(email: Email): any{
-        alert(email.to)
+       
         return this.http.post<any>(this.taURL+"/email/sendEmail",email,{headers:this.headers})
         .pipe(
           retry(2)

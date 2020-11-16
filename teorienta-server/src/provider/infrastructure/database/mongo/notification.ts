@@ -46,7 +46,7 @@ export async function deleteNotification(objectId: any){
 
 export async function listNotification(){
     let response: any;
-    response = await Notification.find();
+    response = await Notification.find({});
     return response;
 }
 

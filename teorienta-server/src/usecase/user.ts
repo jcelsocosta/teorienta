@@ -1,4 +1,4 @@
-import { IUserCreateRepository, IUserAuthenticateRepository, IListUserRepository } from './repository/IUserRepository'
+import { IUserCreateRepository, IUserAuthenticateRepository, IListUserRepository, IListUserEmailRepository } from './repository/IUserRepository'
 import jwt from 'jsonwebtoken'
 import config from '../provider/infrastructure/database/mongo/config/config'
 
@@ -11,6 +11,13 @@ export class CreateUserUseCase {
         const useCaseResponse = await this.repository.createUser(user)
 
         return useCaseResponse
+    }
+}
+
+export class ListUserEmailUseCase{
+    constructor(private repository: IListUserEmailRepository){}
+    async listUserEmail(){
+        return await this.repository.listUserEmail();
     }
 }
 

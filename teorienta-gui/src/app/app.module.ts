@@ -27,6 +27,7 @@ import { AnnouncementService } from './services/announcement/announcement.servic
 import { NotificationService } from './services/notification/notification.service';
 import { ProjectsComponent } from './component/projects/projects.component';
 import { EmailService } from './services/email/email.service';
+import { UserService } from './services/user/user.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -68,7 +69,7 @@ const appRoutes: Routes = [
     FlashMessagesModule.forRoot()
   ],
 
-  providers: [ValidateService, AuthService, AuthGuard, AdminGuard, AnnouncementService,NotificationService, EmailService],
+  providers: [ValidateService, AuthService, AuthGuard, AdminGuard, AnnouncementService,NotificationService, EmailService,UserService],
 
   bootstrap: [AppComponent]
 })

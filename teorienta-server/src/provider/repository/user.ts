@@ -1,5 +1,5 @@
-import { IUserCreateRepository, IUserAuthenticateRepository, IListUserRepository } from '../../usecase/repository/IUserRepository'
-import { createUser, authenticateUser, listUser } from '../infrastructure/database/mongo/user'
+import { IUserCreateRepository, IUserAuthenticateRepository, IListUserRepository, IListUserEmailRepository } from '../../usecase/repository/IUserRepository'
+import { createUser, authenticateUser, listUser, listUserEmail} from '../infrastructure/database/mongo/user'
 
 
 export class CreateUserUseCaseRepository implements IUserCreateRepository {
@@ -13,7 +13,11 @@ export class ListUserUseCaseRepository implements IListUserRepository{
         return await listUser()
     }
 }
-
+export class ListUserEmailUseCaseRepository implements IListUserEmailRepository{
+    async listUserEmail(){
+        return await listUserEmail();
+    }
+}
 export class AuthenticateUserUseCaseRepository implements IUserAuthenticateRepository {
     async authenticateUser(user: any) {
         return await authenticateUser(user)

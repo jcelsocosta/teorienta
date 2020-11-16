@@ -46,6 +46,15 @@ async function getUserByUsername(username) {
 
     return response
 }
+
+export async function listUserEmail(){
+    let response: any;
+    response  = await User.find({"userType":2},{"email":""})
+   
+    return response;
+}
+
+
 export async function listUser() {
 
     let response: any

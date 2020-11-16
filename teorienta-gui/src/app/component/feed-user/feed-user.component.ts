@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { retry, map, catchError } from 'rxjs/operators';
 import axios from 'axios';
+import { User } from '../../common/user';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-feed-user',
@@ -11,13 +13,16 @@ import axios from 'axios';
 })
 export class FeedUserComponent implements OnInit {
   user:Array<any>;
+ 
+  userAux: User = new User();
+  usersAux: User[] = [];
 
-  constructor() {
-    
-   }
+
+  constructor(private userService: UserService){}
    
   ngOnInit(): void {
     this.printUsuarios();
+    this.getUserEmail();
   }
 
  async printUsuarios(){
@@ -40,11 +45,12 @@ export class FeedUserComponent implements OnInit {
     })
   }
 
-  /*
-  getUsers(): Observable<User[]>{
-    return this.http.get<User[]>("http://localhost:3000/user/user")
-      .pipe(
-        retry(2)
+  getUserEmail(){
+   
+    this.userService.getEmailUser()
+      .subscribe(
+        userArrow => { this.usersAux = userArrow  } 
       );
-  } */
+    
+  }
 }

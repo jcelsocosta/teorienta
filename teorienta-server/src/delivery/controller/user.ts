@@ -1,5 +1,5 @@
-import { CreateUserUseCaseRepository, AuthenticateUserUseCaseRepository, ListUserUseCaseRepository } from '../../provider/repository/user'
-import { CreateUserUseCase, AuthenticateUserUseCase, ListUserUseCase } from '../../usecase/user'
+import { CreateUserUseCaseRepository, AuthenticateUserUseCaseRepository, ListUserUseCaseRepository,ListUserEmailUseCaseRepository } from '../../provider/repository/user'
+import { CreateUserUseCase, AuthenticateUserUseCase, ListUserUseCase, ListUserEmailUseCase } from '../../usecase/user'
 
 export async function createUser(user: any) {
 
@@ -14,6 +14,12 @@ export async function listUser(){
     const usecase = new ListUserUseCase(repository)
 
     return await usecase.listUser();
+}
+
+export async function listUserEmail(){
+    const repository = new ListUserEmailUseCaseRepository();
+    const usecase = new ListUserEmailUseCase(repository)
+    return await usecase.listUserEmail();
 }
 
 export async function authenticateUser(user: any) {

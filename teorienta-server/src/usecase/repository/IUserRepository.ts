@@ -9,3 +9,7 @@ export interface IUserAuthenticateRepository {
 export interface IListUserRepository{
     listUser():Promise<any>
 }
+
+export interface IListUserEmailRepository{
+    listUserEmail(): Promise<any>
+}

@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+
 import {Announcement} from '../../common/announcement';
 import {AnnouncementService} from '../../services/announcement/announcement.service';
+
+import {User} from '../../common/user';
+import { UserService } from '../../services/user/user.service';
+
+import {Email} from '../../common/email';
+import {EmailService} from '../../services/email/email.service';
 
 
 @Component({
@@ -8,6 +15,8 @@ import {AnnouncementService} from '../../services/announcement/announcement.serv
   templateUrl: './announcement.component.html',
   styleUrls: ['./announcement.component.css']
 })
+
+
 export class AnnouncementComponent implements OnInit {
   announcement: Announcement = new Announcement();
   announcements: Announcement[] = [];
@@ -15,9 +24,14 @@ export class AnnouncementComponent implements OnInit {
   announcementAux: Announcement = new Announcement();
   announcementsAux: Announcement[] = [];
  
+  userAux: User = new User();
+  usersAux: User[] = [];
 
+  email: Email;
 
-  constructor(private announcementServices: AnnouncementService) {
+  stringTo: String = "";
+
+  constructor(private announcementServices: AnnouncementService, private userService: UserService,private emailService: EmailService) {
 
   }
 
@@ -26,6 +40,7 @@ export class AnnouncementComponent implements OnInit {
       .subscribe(
         announ => {this.announcements = announ}
       );
+      
   }
   
   copyFrom(announcement: Announcement){
@@ -44,6 +59,8 @@ export class AnnouncementComponent implements OnInit {
           }
         }
       );
+
+      this.getSendUserEmail(announcement);
   }
 
   unsubscribeAnnouncement(objectId:String){
@@ -87,6 +104,41 @@ export class AnnouncementComponent implements OnInit {
         
       }
     );
-  }  
+  } 
+  
+  getSendUserEmail(announcement: Announcement){
+    this.userService.getEmailUser()
+      .subscribe(
+        userArrow => { 
+          this.usersAux = userArrow
+          
+          for(let i=0; i < this.usersAux.length; i++){
+            this.stringTo = this.usersAux[i].email as string;
+            this.sendEmail(this.stringTo,announcement);
+          }
+          
+        }
+        
+      );
+    
+  }
+  // montar a mensagem de email 
+
+  sendEmail(destinatary: String, announcement: Announcement):any{
+    
+    let subject: String = "Editais novos foram cadastrados, a Te-orienta separou alguns que pode ser do seu interesse";
+    let message: String = "Edital: "+announcement.title+"\n"+
+                          "Categoria: "+announcement.category+"\n"+
+                          "Data de Submissão: "+announcement.dateSubmission+"\n";
+    let to: String = destinatary;
+    const email: Email = new Email(to,subject,message);
+    
+    this.emailService.postEmail(email)
+      .subscribe();
+    this.email.clean();
+  } 
+  
+
+
 }
 
