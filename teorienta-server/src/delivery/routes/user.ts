@@ -4,9 +4,9 @@ import passport from 'passport'
 import { createUser, authenticateUser, listUser,listUserEmail } from '../controller/user'
 
 // addUser
-router.post('/register', async (req, res, next) => {    
+router.post('/register', async (req, res, next) => {
     const user = req.body.user
-    
+
     const response = await createUser(user)
 
     res.send(response)

@@ -16,7 +16,7 @@ export class AdminGuard implements CanActivate {
             return true
         }
         this.flashMessage.show("Esta página é restrita para administradores", { cssClass: 'alert-danger', timeout: 5000 })
-        this.router.navigate(['/login'])
+        this.router.navigate(['/dashboard'])
         return false
     }
 }

@@ -5,8 +5,8 @@ export class Announcement{
     fomentation: number;
     category: String;
     dateSubmission: String;
-    cnpj: String;
-    cpf: String;
+    cnpj: Boolean;
+    cpf: Boolean;
     urlDocument: String;
     available: boolean;
     question: String;
@@ -16,14 +16,13 @@ export class Announcement{
     }
 
     clean(){
-
         this.title = "";
         this.objective = "";
         this.fomentation = 0;
         this.category = "";
         this.dateSubmission = "";
-        this.cnpj = "";
-        this.cpf = "";
+        this.cnpj = false;
+        this.cpf = false;
         this.urlDocument = "";
         this.available = false;
         this.question = "";

@@ -58,10 +58,10 @@ export class RegisterComponent implements OnInit {
       const body = response.data
       
       if (body.success) {
-        this.flashMesssage.show("You are now registered and can log in.", { cssClass: 'alert-success', timeout: 3000 })
+        this.flashMesssage.show("Você foi registrado e agora consegue logar.", { cssClass: 'alert-success', timeout: 3000 })
         this.router.navigate(['/login'])
       } else {
-        this.flashMesssage.show("Something went wrong.", { cssClass: 'alert-danger', timeout: 3000 })
+        this.flashMesssage.show("Algo deu errado.", { cssClass: 'alert-danger', timeout: 3000 })
         this.router.navigate(['/register'])
       }
     }).catch((error) => {
