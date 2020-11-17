@@ -19,7 +19,6 @@ import { FlashMessagesModule } from 'angular2-flash-messages'
 import { AuthGuard } from './guards/auth.guard'
 import { AdminGuard } from './guards/admin.guards';
 import { FeedAnnouncementComponent } from './component/feed-announcement/feed-announcement.component';
-import { SendEmailComponent } from './component/send-email/send-email.component';
 import { FeedUserComponent } from './component/feed-user/feed-user.component';
 import { NotificationComponent } from './component/notification/notification.component'
 import { AnnouncementService } from './services/announcement/announcement.service';
@@ -35,7 +34,6 @@ const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'announcements', component: AnnouncementComponent, canActivate: [AuthGuard] },
   { path: 'feed-announcement', component: FeedAnnouncementComponent, canActivate: [AuthGuard] },
-  { path: 'send-email', component: SendEmailComponent },
   { path: 'feed-user', component: FeedUserComponent, canActivate: [AdminGuard] },
   { path: 'notification', component: NotificationComponent, canActivate: [AdminGuard] },
   { path: 'projects', component: ProjectsComponent, canActivate: [AdminGuard] }
@@ -50,8 +48,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     RegisterComponent,
     LoginComponent,
-    FeedAnnouncementComponent,
-    SendEmailComponent,
+    FeedAnnouncementComponent,  
     FeedUserComponent,
     NotificationComponent,
     ProjectsComponent

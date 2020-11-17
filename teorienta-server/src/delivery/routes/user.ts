@@ -25,7 +25,6 @@ router.post('/authenticate', async (req, res, next) => {
 //get Usuarios
 router.post('/getUsers',async(req,res:express.Response)=>{
     const response = await listUser();
-    console.log(response);
     res.send(response);
 })
 //get email user
@@ -38,7 +37,7 @@ router.get('/listUserEmail', async(req: express.Request, res: express.Response)=
 
 //Profile
 router.get('/profile', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-    console.log(req.body.user);
+   
     res.json({user: req.body.user})
 })
 

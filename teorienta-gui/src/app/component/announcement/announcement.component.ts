@@ -110,17 +110,14 @@ export class AnnouncementComponent implements OnInit {
     this.userService.getEmailUser()
       .subscribe(
         userArrow => { 
-          this.usersAux = userArrow
-          
-          for(let i=0; i < this.usersAux.length; i++){
-            this.stringTo = this.usersAux[i].email as string;
-            this.sendEmail(this.stringTo,announcement);
+          this.usersAux=userArrow;
+          for(let i=0; i< this.usersAux.length;i++){
+            this.sendEmail(this.usersAux[i].email,announcement);
           }
-          
         }
         
       );
-    
+     
   }
   // montar a mensagem de email 
 
@@ -135,7 +132,7 @@ export class AnnouncementComponent implements OnInit {
     
     this.emailService.postEmail(email)
       .subscribe();
-    this.email.clean();
+    
   } 
   
 
