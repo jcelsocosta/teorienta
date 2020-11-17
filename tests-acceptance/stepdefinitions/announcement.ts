@@ -27,27 +27,27 @@ defineSupportCode(function ({ Given, When,Then}) {
    When(/^I try insert announcements$/, async()=>{
         await element(by.buttonText('Adicionar edital')).click();
    });
-   When(/^I can fill title with "([^\"]*)" objective with "([^\"]*)" fomentation with "(\d*)" category with "([^\"]*)" date Submission with "([^\"]*)" cnpj with  cpf with available with and url with "([^\"]*)"$/, async(title,objective,fomentation,category,dateSubmission,url)=>{
+
+   When(/^I can fill title with "([^\"]*)" objective with "([^\"]*)" fomentation with "(\d*)" category with "([^\"]*)" date Submission with "([^\"]*)" and url with "([^\"]*)"$/, async(title,objective,fomentation,category,dateSubmission,url)=>{
         timeout()
         await $("input[name='titleRegister']").sendKeys(<string>title);
         await $("input[name='objectiveRegister']").sendKeys(<string>objective);
         await $("input[name='fomentationRegister']").sendKeys(<string>fomentation);
         await $("input[name='categoryRegister']").sendKeys(<string>category);
-        await $("input[name='dateSubmissionRegister']").sendKeys(<string>dateSubmission);
+        await $("input[name='dateRegister']").sendKeys(<string>dateSubmission);
         await $("input[name='cnpjRegister']").click();
         await $("input[name='cpfRegister']").click();
         await $("input[name='availableRegister']").click();
         await $("input[name='urlRegister']").sendKeys(<string>url);
         await element(by.buttonText('Salvar Edital')).click();
    });
-   Then(/^I can see title with "([^\"]*)" objective with "([^\"]*)" fomentation with "(\d*)" category with "([^\"]*)" date Submission with "([^\"]*)" cnpj with "([^\"]*)" cpf with "([^\"]*)" and url with "([^\"]*)"$/, async(title,objective,fomentation,category,dateSubmission,cnpj,cpf,url)=>{
+
+   Then(/^I can see title with "([^\"]*)" objective with "([^\"]*)" fomentation with "(\d*)" category with "([^\"]*)" date Submission with "([^\"]*)" and url with "([^\"]*)"$/, async(title,objective,fomentation,category,dateSubmission,url)=>{
         await $("label[name='titleCard']").getText().then(text => text == title)
         await $("label[name='objectiveCard']").getText().then(text => text == objective)
         await $("label[name='fomentationCard']").getText().then(text => text == fomentation)
         await $("label[name='categoryCard']").getText().then(text => text == category)
         await $("label[name='dateCard']").getText().then(text => text == dateSubmission)
-        await $("label[name='cnpjCard']").getText().then(text => text == cnpj)
-        await $("label[name='cpfCard']").getText().then(text => text == cpf)
         await $("label[name='urlCard']").getText().then(text => text == url)
    })
 })

@@ -99,7 +99,7 @@ cucumber_1.defineSupportCode(function (_a) {
             }
         });
     }); });
-    When(/^I can fill title with "([^\"]*)" objective with "([^\"]*)" fomentation with "(\d*)" category with "([^\"]*)" date Submission with "([^\"]*)" cnpj with "([^\"]*)" cpf with "([^\"]*)" and url with "([^\"]*)"$/, function (title, objective, fomentation, category, dateSubmission, cnpj, cpf, url) { return __awaiter(_this, void 0, void 0, function () {
+    When(/^I can fill title with "([^\"]*)" objective with "([^\"]*)" fomentation with "(\d*)" category with "([^\"]*)" date Submission with "([^\"]*)" and url with "([^\"]*)"$/, function (title, objective, fomentation, category, dateSubmission, url) { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -116,26 +116,29 @@ cucumber_1.defineSupportCode(function (_a) {
                     return [4 /*yield*/, protractor_1.$("input[name='categoryRegister']").sendKeys(category)];
                 case 4:
                     _a.sent();
-                    return [4 /*yield*/, protractor_1.$("input[name='dateSubmissionRegister']").sendKeys(dateSubmission)];
+                    return [4 /*yield*/, protractor_1.$("input[name='dateRegister']").sendKeys(dateSubmission)];
                 case 5:
                     _a.sent();
-                    return [4 /*yield*/, protractor_1.$("input[name='cnpjRegister']").sendKeys(cnpj)];
+                    return [4 /*yield*/, protractor_1.$("input[name='cnpjRegister']").click()];
                 case 6:
                     _a.sent();
-                    return [4 /*yield*/, protractor_1.$("input[name='cpfRegister']").sendKeys(cpf)];
+                    return [4 /*yield*/, protractor_1.$("input[name='cpfRegister']").click()];
                 case 7:
                     _a.sent();
-                    return [4 /*yield*/, protractor_1.$("input[name='urlRegister']").sendKeys(url)];
+                    return [4 /*yield*/, protractor_1.$("input[name='availableRegister']").click()];
                 case 8:
                     _a.sent();
-                    return [4 /*yield*/, protractor_1.element(protractor_1.by.buttonText('Salvar Edital')).click()];
+                    return [4 /*yield*/, protractor_1.$("input[name='urlRegister']").sendKeys(url)];
                 case 9:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.element(protractor_1.by.buttonText('Salvar Edital')).click()];
+                case 10:
                     _a.sent();
                     return [2 /*return*/];
             }
         });
     }); });
-    Then(/^I can see title with "([^\"]*)" objective with "([^\"]*)" fomentation with "(\d*)" category with "([^\"]*)" date Submission with "([^\"]*)" cnpj with "([^\"]*)" cpf with "([^\"]*)" and url with "([^\"]*)"$/, function (title, objective, fomentation, category, dateSubmission, cnpj, cpf, url) { return __awaiter(_this, void 0, void 0, function () {
+    Then(/^I can see title with "([^\"]*)" objective with "([^\"]*)" fomentation with "(\d*)" category with "([^\"]*)" date Submission with "([^\"]*)" and url with "([^\"]*)"$/, function (title, objective, fomentation, category, dateSubmission, url) { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, protractor_1.$("label[name='titleCard']").getText().then(function (text) { return text == title; })];
@@ -153,14 +156,8 @@ cucumber_1.defineSupportCode(function (_a) {
                     return [4 /*yield*/, protractor_1.$("label[name='dateCard']").getText().then(function (text) { return text == dateSubmission; })];
                 case 5:
                     _a.sent();
-                    return [4 /*yield*/, protractor_1.$("label[name='cnpjCard']").getText().then(function (text) { return text == cnpj; })];
-                case 6:
-                    _a.sent();
-                    return [4 /*yield*/, protractor_1.$("label[name='cpfCard']").getText().then(function (text) { return text == cpf; })];
-                case 7:
-                    _a.sent();
                     return [4 /*yield*/, protractor_1.$("label[name='urlCard']").getText().then(function (text) { return text == url; })];
-                case 8:
+                case 6:
                     _a.sent();
                     return [2 /*return*/];
             }
