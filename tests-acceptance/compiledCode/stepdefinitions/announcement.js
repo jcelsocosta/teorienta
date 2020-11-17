@@ -43,7 +43,7 @@ var expect = chai.expect;
 function timeout() {
     setTimeout(function () {
         timeout();
-    }, 3000, 60);
+    }, 1000, 60);
 }
 cucumber_1.defineSupportCode(function (_a) {
     var _this = this;
@@ -61,7 +61,6 @@ cucumber_1.defineSupportCode(function (_a) {
             }
         });
     }); });
-    //admin admin
     When(/^I try fill username with "([^\"]*)" and  password with "([^\"]*)"$/, function (username, password) { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -95,6 +94,73 @@ cucumber_1.defineSupportCode(function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, protractor_1.element(protractor_1.by.buttonText('Adicionar edital')).click()];
                 case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    When(/^I can fill title with "([^\"]*)" objective with "([^\"]*)" fomentation with "(\d*)" category with "([^\"]*)" date Submission with "([^\"]*)" cnpj with "([^\"]*)" cpf with "([^\"]*)" and url with "([^\"]*)"$/, function (title, objective, fomentation, category, dateSubmission, cnpj, cpf, url) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    timeout();
+                    return [4 /*yield*/, protractor_1.$("input[name='titleRegister']").sendKeys(title)];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("input[name='objectiveRegister']").sendKeys(objective)];
+                case 2:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("input[name='fomentationRegister']").sendKeys(fomentation)];
+                case 3:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("input[name='categoryRegister']").sendKeys(category)];
+                case 4:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("input[name='dateSubmissionRegister']").sendKeys(dateSubmission)];
+                case 5:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("input[name='cnpjRegister']").sendKeys(cnpj)];
+                case 6:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("input[name='cpfRegister']").sendKeys(cpf)];
+                case 7:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("input[name='urlRegister']").sendKeys(url)];
+                case 8:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.element(protractor_1.by.buttonText('Salvar Edital')).click()];
+                case 9:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    Then(/^I can see title with "([^\"]*)" objective with "([^\"]*)" fomentation with "(\d*)" category with "([^\"]*)" date Submission with "([^\"]*)" cnpj with "([^\"]*)" cpf with "([^\"]*)" and url with "([^\"]*)"$/, function (title, objective, fomentation, category, dateSubmission, cnpj, cpf, url) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, protractor_1.$("label[name='titleCard']").getText().then(function (text) { return text == title; })];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("label[name='objectiveCard']").getText().then(function (text) { return text == objective; })];
+                case 2:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("label[name='fomentationCard']").getText().then(function (text) { return text == fomentation; })];
+                case 3:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("label[name='categoryCard']").getText().then(function (text) { return text == category; })];
+                case 4:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("label[name='dateCard']").getText().then(function (text) { return text == dateSubmission; })];
+                case 5:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("label[name='cnpjCard']").getText().then(function (text) { return text == cnpj; })];
+                case 6:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("label[name='cpfCard']").getText().then(function (text) { return text == cpf; })];
+                case 7:
+                    _a.sent();
+                    return [4 /*yield*/, protractor_1.$("label[name='urlCard']").getText().then(function (text) { return text == url; })];
+                case 8:
                     _a.sent();
                     return [2 /*return*/];
             }
