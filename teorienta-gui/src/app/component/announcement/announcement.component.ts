@@ -50,11 +50,12 @@ export class AnnouncementComponent implements OnInit {
     this.announcementsAux.push(announcement)
   }
 
-  subscribeAnnouncement(announcement: Announcement) {
+  async subscribeAnnouncement(announcement: Announcement) {
+    console.log(announcement)
 
-    const errorMessage = this.validateAnnouncement(announcement)
+    const errorMessage = await this.validateAnnouncement(announcement)
     if(errorMessage){
-      throw new Error(errorMessage);      
+      throw new Error(errorMessage);    
     }
 
     this.announcementServices.postAnnouncements(announcement)
@@ -70,30 +71,30 @@ export class AnnouncementComponent implements OnInit {
     this.getSendUserEmail(announcement);
   }
 
-  validateAnnouncement(announcement: Announcement): string {
+  async validateAnnouncement(announcement: Announcement): Promise<string> {
     const title = announcement.title
     const category = announcement.category
     const objective = announcement.objective
     const dateSubmission = announcement.dateSubmission
     const urlDocument = announcement.urlDocument
-
-    if (checkEmpty(title)) {
+    
+    if (await checkEmpty(title)) {
       return "O título não pode ficar vazio."
     }
 
-    if (checkEmpty(category)) {
+    if (await checkEmpty(category)) {
       return "A categoria não pode ficar vazia."
     }
 
-    if(checkEmpty(objective)) {
+    if(await checkEmpty(objective)) {
       return "O objetivo não pode ficar vazio."
     }
 
-    if(checkEmpty(dateSubmission)){
+    if(await checkEmpty(dateSubmission)){
       return "A data de submissão não pode ficar vazia."
     }
 
-    if(checkEmpty(urlDocument)){
+    if(await checkEmpty(urlDocument)){
       return "A URL do edital não pode ficar vazia."
     }
 
