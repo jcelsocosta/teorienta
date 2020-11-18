@@ -1,14 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "ES2015",
     "module": "commonjs",
     "allowJs": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": false
-    
+    "noImplicitAny": false,
+    "outDir": "compiledCode",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [ "es2015", "dom" ],
+    "suppressImplicitAnyIndexErrors": true  
   },
+  "compileOnSave":true,
   "include": [
     "src/**/*.ts"
   ]

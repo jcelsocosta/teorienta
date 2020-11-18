@@ -1,0 +1,1 @@
+{"version":3,"file":"management.js","sourceRoot":"","sources":["../../../src/delivery/controller/management.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qEAAwF;AACxF,yDAAkE;AAElE,SAAsB,gBAAgB,CAAC,UAAe;;QAElD,MAAM,UAAU,GAAG,IAAI,8CAAiC,EAAE,CAAA;QAC1D,MAAM,OAAO,GAAG,IAAI,oCAAuB,CAAC,UAAU,CAAC,CAAA;QAEvD,OAAO,MAAM,OAAO,CAAC,gBAAgB,CAAC,UAAU,CAAC,CAAA;IACrD,CAAC;CAAA;AAND,4CAMC"}
