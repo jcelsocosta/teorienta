@@ -49,7 +49,7 @@ async function getUserByUsername(username) {
 
 export async function listUserEmail(){
     let response: any;
-    response  = await User.find({"userType":2},{"email":""})
+    response  = await User.find({"userType":2})
    
     return response;
 }
