@@ -1,0 +1,215 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Editais</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <button class="btn btn-outline-success my-2 my-sm-0" name='add' data-toggle="modal"
+            data-target="#createAnnouncementModal"><i class="fa fa-file"></i> Adicionar edital</button>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 20rem; margin: 10px;" *ngFor="let announcement of announcements; index as i;">
+            <div class="card-body">
+                <label>Id:&nbsp;{{announcement._id}}</label><br>
+
+                <label name="titleCard">Título:&nbsp;{{announcement.title}}</label><br>
+                <label name="objectiveCard">Objetivo:&nbsp;{{announcement.objective}}</label><br>
+                <label name="fomentationCard">Fomentação:&nbsp; R${{announcement.fomentation}}</label><br>
+                <label name="categoryCard">Categoria:&nbsp;{{announcement.category}}</label><br>
+                <label name="dateCard">Data de Submissão:&nbsp;{{announcement.dateSubmission}}</label><br>
+                <label name="cnpjCard">CNPJ:&nbsp;{{announcement.cnpj}}</label><br>
+                <label name="cpfCard">CPF:&nbsp;{{announcement.cpf}}</label><br>
+                <label name="urlCard">Url do Edital:&nbsp;<a [attr.href]="announcement.urlDocument">{{announcement.urlDocument}}</a></label><br>
+
+                <p *ngIf="announcement.available">
+                    <label>Disponível:<i class="fa fa-check" style="font-size:20px;color:green"></i></label>
+                </p>
+                <p *ngIf="!announcement.available">
+                    <label>Disponível:<i class="fa fa-close" style="font-size:20px;color:red"></i></label>
+                </p>
+                <button class="btn btn-danger" (click)="unsubscribeAnnouncement(announcement)">Excluir</button>                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Create-->
+<div class="modal fade" id="createAnnouncementModal" tabindex="-1" role="dialog"
+    aria-labelledby="createAnnouncementModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createAnnouncementModalLabel">Adicionar novo edital</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="inputTitleAnnoucement">Título</label>
+
+                        <input type="text" [(ngModel)]="announcement.title" name="titleRegister" class="form-control"
+                            id="inputTitleAnnoucement" placeholder="Insira o Título do Edital">
+                        <label style="color: rgb(180, 32, 32);">
+                            {{announcement.title == ''? "Título não pode ser vazio":""}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputObjectiveAnnoucement">Objetivo</label>
+                        <input type="text" [(ngModel)]="announcement.objective" name="objectiveRegister" class="form-control"
+                            id="inputObjectiveAnnoucement" placeholder="Insira o Objetivo do Edital">
+                        <label style="color: rgb(180, 32, 32);">
+                            {{announcement.objective == ''? "Objetivo não pode ser vazio":""}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFomentationAnnoucement">Fomentação(Em R$)</label>
+                        <input type="number" [(ngModel)]="announcement.fomentation" name="fomentationRegister"
+                            class="form-control" id="inputFomentationAnnoucement">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCategoryAnnoucement">Categoria</label>
+                        <input type="text" [(ngModel)]="announcement.category" name="categoryRegister" class="form-control"
+                            id="inputCategoryAnnoucement" placeholder="Insira a Categoria do Edital">
+                        <label style="color: rgb(180, 32, 32);">
+                            {{announcement.category == ''? "Categoria não pode ser vazia":""}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDateSubmissionAnnoucement">data de Submissão</label>
+                        <input type="text" [(ngModel)]="announcement.dateSubmission" name="dateRegister"
+                            class="form-control" id="inputDateSubmissionAnnoucement"
+                            placeholder="Insira a data de submissão do Edital">
+
+                        <label style="color: rgb(180, 32, 32);">
+                            {{announcement.dateSubmission == ''? "Data de submissão não pode ser vazia":""}}</label>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" [(ngModel)]="announcement.cnpj" name="cnpjRegister" class="form-check-input"
+                            id="inputCnpjAnnoucement">
+                        <label class="form-check-label" for="inputCnpjAnnoucement">CNPJ</label>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" [(ngModel)]="announcement.cpf" name="cpfRegister" class="form-check-input"
+                            id="inputCpfAnnoucement">
+                        <label class="form-check-label" for="inputCpfAnnoucement">CPF</label>
+
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" [(ngModel)]="announcement.available" name="availableRegister"
+                            class="form-check-input" id="editalAvailable">
+                        <label class="form-check-label" for="editalAvailable">Disponível</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputDocumentLinkAnnoucement">Url do Edital</label>
+
+                        <input type="text" [(ngModel)]="announcement.urlDocument" name="urlRegister"
+                            class="form-control" id="inputDocumentLinkAnnoucement"
+                            placeholder="Insira o link para o documento">
+                        <label style="color: rgb(180, 32, 32);">
+                            {{announcement.urlDocument == ''? "Link para o edital não pode ser vazio":""}}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="textAreaQuestionAnnouncement">Questões</label>
+                        <textarea type="text" rows="5" cols="50" [(ngModel)]="announcement.question"
+                            name="textAreaQuestionAnnouncement"></textarea>
+
+
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="subscribeAnnouncement(announcement)">Salvar Edital</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Atualizar Edital-->
+
+<div class="modal fade" id="updateAnnouncementModal" tabindex="-1" role="dialog"
+    aria-labelledby="updateAnnouncementModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateAnnouncementModalLabel">Atualizar Edital</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="inputIdAnnoucement">Id:</label>
+                        <input type="text" [(ngModel)]="announcementAux._id" name="id" class="form-control"
+                            id="inputIdAnnoucement" placeholder="Insira o Id">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTitleAnnoucement">Título</label>
+                        <input type="text" [(ngModel)]="announcementAux.title" name="title" class="form-control"
+                            id="inputTitleAnnoucement" placeholder="Insira o Título do Edital">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputObjectiveAnnoucement">Objetivo</label>
+                        <input type="text" [(ngModel)]="announcementAux.objective" name="objective" class="form-control"
+                            id="inputObjectiveAnnoucement" placeholder="Insira o Objetivo do Edital">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFomentationAnnoucement">Fomentação</label>
+                        <input type="text" [(ngModel)]="announcementAux.fomentation" name="fomentation"
+                            class="form-control" id="inputFomentationAnnoucement"
+                            placeholder="Insira o Fomento do Edital">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCategoryAnnoucement">Categoria</label>
+                        <input type="text" [(ngModel)]="announcementAux.category" name="category" class="form-control"
+                            id="inputCategoryAnnoucement" placeholder="Insira a Categoria do Edital">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDateSubmissionAnnoucement">data de Submissão</label>
+                        <input type="text" [(ngModel)]="announcementAux.dateSubmission" name="dateSubmission"
+                            class="form-control" id="inputDateSubmissionAnnoucement"
+                            placeholder="Insira a data de submissão do Edital">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCnpjAnnoucement">CNPJ</label>
+                        <input type="text" [(ngModel)]="announcementAux.cnpj" name="cnpj" class="form-control"
+                            id="inputCnpjAnnoucement" placeholder="Insira se precisa de CNPJ">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCpfAnnoucement">CPF</label>
+                        <input type="text" [(ngModel)]="announcementAux.cpf" name="cpf" class="form-control"
+                            id="inputCpfAnnoucement" placeholder="Insira se precisa do CPF">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDocumentLinkAnnoucement">Url do Edital</label>
+                        <input type="text" [(ngModel)]="announcementAux.urlDocument" name="urlDocument"
+                            class="form-control" id="inputDocumentLinkAnnoucement"
+                            placeholder="Insira o link para o documento">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" [(ngModel)]="announcementAux.available" name="available"
+                            class="form-check-input" id="editalAvailable">
+                        <label class="form-check-label" for="editalAvailable">Disponível</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="updateAnnouncement(announcementAux)">Atualizar Edital</button>
+            </div>
+        </div>
+    </div>
+</div>

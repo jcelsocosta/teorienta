@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3>Cadastrar</h3>
+            </div>
+            <form (submit)="onRegisterSubmit()">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" [(ngModel)]="name" name="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" [(ngModel)]="username" name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" [(ngModel)]="email" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Cnpj</label>
+                    <input type="text" [(ngModel)]="cnpj" name="cnpj" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Cpf</label>
+                    <input type="text" [(ngModel)]="cpf" name="cpf" class="form-control">
+                </div>
+                <label>Senha</label>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-unlock"></i></span>
+                    </div>
+                    <input type="password" [(ngModel)]="password" name="password" class="form-control">
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Tipo: </span>
+                    </div>
+                    <select class="form-control" [(ngModel)]="userTypeSelected" name="userTypeSelected">
+                        <option *ngFor="let userType of userTypes; index as i;" value={{userType.id}}>
+                            {{userType.type}}</option>
+                    </select>
+                </div>
+            </form>
+            <button class="btn btn-primary" (click)="onRegisterSubmit()">Cadastrar</button>
+        </div>
+    </div>
+</div>

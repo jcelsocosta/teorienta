@@ -1,0 +1,18 @@
+h1 , .lead{
+    color: #EEE7D4;
+}
+.jumbotron{
+    background-color: #3B4757;
+    
+}
+.btn-primary{
+    background-color: #FF7E3F;
+    border-color: #FF7E3F;
+    color: #EEE7D4;
+}
+.btn-default {
+    color: #EEE7D4;
+}
+body{
+    background-color: aqua;
+}

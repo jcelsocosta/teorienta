@@ -1,0 +1,36 @@
+<!-- Card com Edital -->
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 20rem; margin: 10px;" *ngFor="let notification of notifications" >
+            <div class="card-body">
+                <label>Id:&nbsp;{{notification.idAnnouncement}}&nbsp;</label><br>
+                <label>Títutlo:&nbsp; {{notification.titleAnnouncement}}&nbsp;</label><br>
+                <label>Objetivo:&nbsp; {{notification.objectiveAnnouncement}} &nbsp;</label><br>
+                <label>Fomentação:&nbsp;{{notification.fomentationAnnouncement}} &nbsp;</label><br>
+                <label>Categoria:&nbsp;{{notification.categoryAnnouncement}} &nbsp;</label><br>
+                <label>Data de Submissão:&nbsp;{{notification.dateSubmissionAnnouncement}} &nbsp;</label><br>
+                <label>CNPJ:&nbsp;{{notification.cnpjAnnouncement}} &nbsp;</label><br>
+                <label>CPF:&nbsp;{{notification.cpfAnnouncement}}&nbsp;</label><br>
+                <label>Url do Edital:&nbsp;{{notification.urlDocumentAnnouncement}}&nbsp;<a [attr.href]=""></a></label><br>
+                
+                
+            </div>
+
+            <div class="card-body">
+                <label>Name:&nbsp;{{notification.nameUser}}</label><br>
+                <label>Email:&nbsp;{{notification.emailUser}}</label><br>
+                <label>Cpf:&nbsp;{{notification.cpfUser}}</label><br>
+                <label>Cnpj:&nbsp;{{notification.cnpjUser}}</label><br>
+                <label>Username:&nbsp;{{notification.usernameUser}}</label><br>
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

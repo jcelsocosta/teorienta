@@ -1,0 +1,1 @@
+{"version":3,"file":"management.js","sourceRoot":"","sources":["../../src/usecase/management.ts"],"names":[],"mappings":";;;;;;;;;;AAEA,MAAa,uBAAuB;IAChC,YACY,UAAiC;QAAjC,eAAU,GAAV,UAAU,CAAuB;IACzC,CAAC;IAEC,gBAAgB,CAAC,IAAS;;YAC5B,MAAM,eAAe,GAAG,MAAM,IAAI,CAAC,UAAU,CAAC,gBAAgB,CAAC,IAAI,CAAC,CAAA;YAEpE,OAAO,eAAe,CAAA;QAC1B,CAAC;KAAA;CACJ;AAVD,0DAUC"}

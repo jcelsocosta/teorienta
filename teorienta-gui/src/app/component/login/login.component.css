@@ -1,0 +1,35 @@
+
+
+.container {
+    height: 100%;
+    align-content: center;
+    color: #EEE7D4;
+}
+.card {
+    height: 370px;
+    margin-top: 2%;
+    margin-bottom: auto;
+    width: 300px;
+    background-color: #3B4757;
+}
+
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.login_btn {
+    color:#EEE7D4;
+    background-color: #FF7E3F;
+    width: 100px;
+}
+
+.login_btn:hover {
+    color: #FF7E3F;
+    background-color:#EEE7D4;
+}
+
+.links a {
+    margin-left: 4px;
+}

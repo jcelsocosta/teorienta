@@ -1,0 +1,12 @@
+<div class="jumbotron text-center">
+    <h1>Te Orienta</h1>
+    <title>Te Orienta</title>
+    <p class="lead">Seja bem-vindo!</p>
+    <div *ngIf="authService.isUserAdmin()">
+        <a class="btn btn-primary" name="dashboard" [routerLink]="['/dashboard']">Verifique seu Dashboard</a>
+    </div>
+    <div *ngIf="!authService.isUserAdmin()">
+        <a class="btn btn-primary" name="dashboard" [routerLink]="['/login']">Entre</a>
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+<table>
+    <tr>
+        <th>Título&nbsp;&nbsp;&nbsp;</th>
+        <th>Objetivo&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th>Fomentação&nbsp;&nbsp;&nbsp;</th>
+        <th>Categoria&nbsp;&nbsp;&nbsp;</th>
+        <th>Data de Submissão&nbsp;&nbsp;&nbsp;</th>
+        <th>CNPJ&nbsp;&nbsp;&nbsp;</th>
+        <th>CPF&nbsp;&nbsp;&nbsp;</th>
+        <th>Username&nbsp;&nbsp;&nbsp;</th>
+        <th>Email&nbsp;&nbsp;&nbsp;</th>
+        <th>CPF&nbsp;&nbsp;&nbsp;</th>
+        <th>CNPJ&nbsp;&nbsp;&nbsp;</th>
+        
+    </tr>
+
+    <tr *ngFor=" let notification of notifications">
+        <td>{{notification.titleAnnouncement}}</td>
+        <td>{{notification.objectiveAnnouncement}}</td>
+        <td>{{notification.fomentationAnnouncement}}</td>
+        <td>{{notification.categoryAnnouncement}}</td>
+        <td>{{notification.dateSubmissionAnnouncement}}</td>
+        <td>{{notification.cnpjAnnouncement}}</td>
+        <td>{{notification.cpfAnnouncement}}</td>
+        <td>{{notification.usernameUser}}</td>
+        <td>{{notification. emailUser}}</td>
+        <td>{{notification.cpfUser}}</td>
+        <td>{{notification.cnpjUser}}</td>
+        <td>
+            <button class="btn btn-primary" (click)="storeDataLocal(notification)" [routerLink]="['/projects']">Escrever Projeto</button>
+        </td>
+        <br><br>
+    </tr>
+    
+</table>
