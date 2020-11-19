@@ -33,10 +33,7 @@
                 <p *ngIf="!announcement.available">
                     <label>Disponível:<i class="fa fa-close" style="font-size:20px;color:red"></i></label>
                 </p>
-                <button class="btn btn-danger" (click)="unsubscribeAnnouncement(announcement)">Excluir</button>
-                <button class="btn btn-outline-success my-2 my-sm-0" (click)="copyFrom(announcement)"
-                    data-toggle="modal" data-target="#updateAnnouncementModal"><i
-                        class="fa fa-file"></i>Atualizar</button>
+                <button class="btn btn-danger" (click)="unsubscribeAnnouncement(announcement)">Excluir</button>                
             </div>
         </div>
     </div>

@@ -54,8 +54,8 @@ export class AnnouncementComponent implements OnInit {
     console.log(announcement)
 
     const errorMessage = await this.validateAnnouncement(announcement)
-    if(errorMessage){
-      throw new Error(errorMessage);    
+    if (errorMessage) {
+      throw new Error(errorMessage);
     }
 
     this.announcementServices.postAnnouncements(announcement)
@@ -77,7 +77,7 @@ export class AnnouncementComponent implements OnInit {
     const objective = announcement.objective
     const dateSubmission = announcement.dateSubmission
     const urlDocument = announcement.urlDocument
-    
+
     if (await checkEmpty(title)) {
       return "O título não pode ficar vazio."
     }
@@ -86,15 +86,15 @@ export class AnnouncementComponent implements OnInit {
       return "A categoria não pode ficar vazia."
     }
 
-    if(await checkEmpty(objective)) {
+    if (await checkEmpty(objective)) {
       return "O objetivo não pode ficar vazio."
     }
 
-    if(await checkEmpty(dateSubmission)){
+    if (await checkEmpty(dateSubmission)) {
       return "A data de submissão não pode ficar vazia."
     }
 
-    if(await checkEmpty(urlDocument)){
+    if (await checkEmpty(urlDocument)) {
       return "A URL do edital não pode ficar vazia."
     }
 
@@ -149,6 +149,7 @@ export class AnnouncementComponent implements OnInit {
       .subscribe(
         userArrow => {
           this.usersAux = userArrow;
+          console.log(this.usersAux)
           for (let i = 0; i < this.usersAux.length; i++) {
             this.sendEmail(this.usersAux[i].email, announcement);
           }
@@ -160,6 +161,7 @@ export class AnnouncementComponent implements OnInit {
   // montar a mensagem de email 
 
   sendEmail(destinatary: String, announcement: Announcement): any {
+    console.log(destinatary)
 
     let subject: String = "Editais novos foram cadastrados, a Te-orienta separou alguns que pode ser do seu interesse";
     let message: String = "Edital: " + announcement.title + "\n" +

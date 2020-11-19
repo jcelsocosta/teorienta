@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
 import { Announcement } from '../../common/announcement';
 import { AnnouncementService } from '../../services/announcement/announcement.service';
 import { User } from '../../common/user';
 import { Notification } from '../../common/notification';
 
 import { NotificationService } from '../../services/notification/notification.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 
 @Component({
@@ -22,7 +22,11 @@ export class FeedAnnouncementComponent implements OnInit {
   user: User = new User();
   users: User[] = [];
 
-  constructor(private announcementServices: AnnouncementService, private notificationServices: NotificationService) {
+  constructor(
+    private announcementServices: AnnouncementService, 
+    private notificationServices: NotificationService,
+    private flashMessage: FlashMessagesService
+    ) {
   }
 
   ngOnInit(): void {
@@ -59,7 +63,9 @@ export class FeedAnnouncementComponent implements OnInit {
       usernameUser: user.username as String,
     }
     this.notificationServices.postNotification(notify as Notification)
-      .subscribe();
+      .subscribe( el => {
+        this.flashMessage.show('Edital aplicado com sucesso.', { cssClass: 'alert-success', timeout: 3000 })
+      });
   }
 
 

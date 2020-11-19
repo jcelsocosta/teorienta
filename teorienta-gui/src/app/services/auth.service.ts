@@ -62,7 +62,11 @@ export class AuthService {
   }
 
   isUserAdmin() {
-    return this.user && this.user.userType == 1
+    const user = JSON.parse(localStorage.getItem('user'))
+    if (user) {
+      return user.userType == 1
+    }
+    return false
   }
 
   loggedIn() {
