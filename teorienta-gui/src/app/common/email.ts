@@ -1,25 +1,23 @@
-export class Email{
-    to: String;
-    subject: String;
-    message: String;
+export class Email {
+    to: string;
+    subject: string;
+    message: string;
 
-
-    constructor(to:String,subject:String,message:String){
+    constructor(to: string, subject: string, message: string) {
         this.to = to;
         this.subject = subject;
         this.message = message;
     }
 
-    clean(){
-        this.to = "";
-        this.subject = "";
-        this.message = "";
+    clean(): void {
+        this.to = '';
+        this.subject = '';
+        this.message = '';
     }
-    copy(to:String,subject:String,message:String){
+
+    copy(to: string, subject: string, message: string): void {
         this.to = to;
         this.subject = subject;
         this.message = message;
     }
-
-    
-} 
+}

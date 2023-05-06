@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.notificationService.getNotification()
       .subscribe(
-        noti => { this.notifications = noti }
+        noti => { this.notifications = noti; }
       );
   }
 

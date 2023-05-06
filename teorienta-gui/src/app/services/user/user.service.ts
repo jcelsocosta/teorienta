@@ -13,11 +13,9 @@ export class UserService{
     constructor(private http: HttpClient){}
 
     getEmailUser(): any{
-        return this.http.get<User[]>(this.taURL + "/users/listUserEmail")
+        return this.http.get<User[]>(this.taURL + '/users/listUserEmail')
         .pipe(
            retry(2)
          );
-        
     }
 }
-

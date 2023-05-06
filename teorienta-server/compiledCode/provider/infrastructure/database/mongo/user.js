@@ -59,7 +59,7 @@ function getUserByUsername(username) {
 function listUserEmail() {
     return __awaiter(this, void 0, void 0, function* () {
         let response;
-        response = yield user_1.default.find({ "userType": 2 }, { "email": "" });
+        response = yield user_1.default.find({ "userType": 2 });
         return response;
     });
 }

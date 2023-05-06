@@ -1,6 +1,6 @@
-export function checkEmpty(field) {
-    if(field == undefined || field == "" || field == null){
-        return true
+export function checkEmpty(field: any): boolean {
+    if (field === undefined || field === '' || field === null) {
+        return true;
     }
-    return false
+    return false;
 }

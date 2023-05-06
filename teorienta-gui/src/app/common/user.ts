@@ -1,25 +1,25 @@
-export class User{
-    name: String;
-    username:String;
-    email: String;
-    cnpj: String;
-    cpf: String;
-    password: String;
+export class User {
+    name: string;
+    username: string;
+    email: string;
+    cnpj: string;
+    cpf: string;
+    password: string;
     userType: any;
     userTypeSelected: any;
 
-    constructor(){
+    constructor() {
         this.clean();
     }
 
-    clean(){
-        this.name = "";
-        this.username = "";
-        this.email= "";
-        this.cnpj = "";
-        this.cpf = "";
-        this.password = "";
-        this.userType;
-        this.userTypeSelected;
+    clean(): void {
+        this.name = '';
+        this.username = '';
+        this.email = '';
+        this.cnpj = '';
+        this.cpf = '';
+        this.password = '';
+        this.userType = undefined;
+        this.userTypeSelected = undefined;
     }
 }

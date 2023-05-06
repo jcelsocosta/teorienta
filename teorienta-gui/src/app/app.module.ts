@@ -13,14 +13,14 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 
-import { ValidateService } from './services/validate.service'
-import { AuthService } from './services/auth.service'
-import { FlashMessagesModule } from 'angular2-flash-messages'
-import { AuthGuard } from './guards/auth.guard'
+import { ValidateService } from './services/validate.service';
+import { AuthService } from './services/auth.service';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guards';
 import { FeedAnnouncementComponent } from './component/feed-announcement/feed-announcement.component';
 import { FeedUserComponent } from './component/feed-user/feed-user.component';
-import { NotificationComponent } from './component/notification/notification.component'
+import { NotificationComponent } from './component/notification/notification.component';
 import { AnnouncementService } from './services/announcement/announcement.service';
 import { NotificationService } from './services/notification/notification.service';
 import { ProjectsComponent } from './component/projects/projects.component';
@@ -37,7 +37,7 @@ const appRoutes: Routes = [
   { path: 'feed-user', component: FeedUserComponent, canActivate: [AdminGuard] },
   { path: 'notification', component: NotificationComponent, canActivate: [AdminGuard] },
   { path: 'projects', component: ProjectsComponent, canActivate: [AdminGuard] }
-]
+];
 
 @NgModule({
   declarations: [
@@ -48,7 +48,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     RegisterComponent,
     LoginComponent,
-    FeedAnnouncementComponent,  
+    FeedAnnouncementComponent,
     FeedUserComponent,
     NotificationComponent,
     ProjectsComponent
@@ -63,7 +63,7 @@ const appRoutes: Routes = [
     FlashMessagesModule.forRoot()
   ],
 
-  providers: [ValidateService, AuthService, AuthGuard, AdminGuard, AnnouncementService,NotificationService, EmailService,UserService],
+  providers: [ValidateService, AuthService, AuthGuard, AdminGuard, AnnouncementService, NotificationService, EmailService, UserService],
 
   bootstrap: [AppComponent]
 })

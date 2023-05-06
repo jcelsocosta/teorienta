@@ -15,7 +15,7 @@ export class AnnouncementService {
   constructor(private http: HttpClient) { }
 
   getAnnouncements(): Observable<Announcement[]> {
-    return this.http.get<Announcement[]>(this.taURL + "/announcements/announcements")
+    return this.http.get<Announcement[]>(this.taURL + '/announcements/announcements')
       .pipe(
         retry(2)
       );
@@ -23,7 +23,7 @@ export class AnnouncementService {
 
   getOneAnnouncements(objectId: any): Observable<Announcement[]> {
     const taUrlGet = 'http://localhost:3000/announcements/oneAnnouncements';
-    const url = `${taUrlGet}/${objectId}`
+    const url = `${taUrlGet}/${objectId}`;
     return this.http.get<Announcement[]>(url)
       .pipe(
         retry(2)
@@ -32,14 +32,14 @@ export class AnnouncementService {
 
   postAnnouncements(anouncement: Announcement): Observable<Announcement> {
 
-    return this.http.post<any>(this.taURL + "/announcements/createAnnouncement", anouncement, { headers: this.headers })
+    return this.http.post<any>(this.taURL + '/announcements/createAnnouncement', anouncement, { headers: this.headers })
       .pipe(
         retry(2)
       );
   }
 
 
-  deleteAnnouncements(objectId: String): Observable<{}> {
+  deleteAnnouncements(objectId: string): Observable<{}> {
     const taUrlDelete = 'http://localhost:3000/announcements/delete';
     const url = `${taUrlDelete}/${objectId}`;
     return this.http.delete(url, { headers: this.headers })
@@ -50,7 +50,7 @@ export class AnnouncementService {
 
   updateAnnouncements(announcement: Announcement): Observable<Announcement> {
 
-    return this.http.put<any>(this.taURL + "/announcements/update", JSON.stringify(announcement), { headers: this.headers })
+    return this.http.put<any>(this.taURL + '/announcements/update', JSON.stringify(announcement), { headers: this.headers })
       .pipe(
         retry(2)
       );

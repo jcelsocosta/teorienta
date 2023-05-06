@@ -9,7 +9,7 @@ import { UserService } from '../../services/user/user.service';
 import { Email } from '../../common/email';
 import { EmailService } from '../../services/email/email.service';
 
-import { checkEmpty } from '../../common/validate'
+import { checkEmpty } from '../../common/validate';
 
 
 @Component({
@@ -31,29 +31,30 @@ export class AnnouncementComponent implements OnInit {
 
   email: Email;
 
-  stringTo: String = "";
+  stringTo: string;
 
   constructor(private announcementServices: AnnouncementService, private userService: UserService, private emailService: EmailService) {
-
+    this.announcementServices = announcementServices;
+    this.userService = userService;
+    this.emailService = emailService;
   }
 
   ngOnInit(): void {
     this.announcementServices.getAnnouncements()
       .subscribe(
-        announ => { this.announcements = announ }
+        announ => { this.announcements = announ; }
       );
 
   }
 
-  copyFrom(announcement: Announcement) {
+  copyFrom(announcement: Announcement): void {
     this.announcementsAux.pop();
-    this.announcementsAux.push(announcement)
+    this.announcementsAux.push(announcement);
   }
 
-  async subscribeAnnouncement(announcement: Announcement) {
-    console.log(announcement)
+  async subscribeAnnouncement(announcement: Announcement): Promise<void> {
+    const errorMessage = this.validateAnnouncement(announcement);
 
-    const errorMessage = await this.validateAnnouncement(announcement)
     if (errorMessage) {
       throw new Error(errorMessage);
     }
@@ -62,7 +63,7 @@ export class AnnouncementComponent implements OnInit {
       .subscribe(
         announ => {
           if (announ) {
-            this.announcements.push(announcement)
+            this.announcements.push(announcement);
             this.announcement = new Announcement();
           }
         }
@@ -71,67 +72,65 @@ export class AnnouncementComponent implements OnInit {
     this.getSendUserEmail(announcement);
   }
 
-  async validateAnnouncement(announcement: Announcement): Promise<string> {
-    const title = announcement.title
-    const category = announcement.category
-    const objective = announcement.objective
-    const dateSubmission = announcement.dateSubmission
-    const urlDocument = announcement.urlDocument
+  validateAnnouncement(announcement: Announcement): string {
+    const title = announcement.title;
+    const category = announcement.category;
+    const objective = announcement.objective;
+    const dateSubmission = announcement.dateSubmission;
+    const urlDocument = announcement.urlDocument;
 
-    if (await checkEmpty(title)) {
-      return "O título não pode ficar vazio."
+    if (checkEmpty(title)) {
+      return 'O título não pode ficar vazio.';
     }
 
-    if (await checkEmpty(category)) {
-      return "A categoria não pode ficar vazia."
+    if (checkEmpty(category)) {
+      return 'A categoria não pode ficar vazia.';
     }
 
-    if (await checkEmpty(objective)) {
-      return "O objetivo não pode ficar vazio."
+    if (checkEmpty(objective)) {
+      return 'O objetivo não pode ficar vazio.';
     }
 
-    if (await checkEmpty(dateSubmission)) {
-      return "A data de submissão não pode ficar vazia."
+    if (checkEmpty(dateSubmission)) {
+      return 'A data de submissão não pode ficar vazia.';
     }
 
-    if (await checkEmpty(urlDocument)) {
-      return "A URL do edital não pode ficar vazia."
+    if (checkEmpty(urlDocument)) {
+      return 'A URL do edital não pode ficar vazia.';
     }
 
-    return null
+    return null;
   }
 
-  unsubscribeAnnouncement(objectId: String) {
+  unsubscribeAnnouncement(objectId: string): void {
 
     this.announcementServices.deleteAnnouncements(objectId)
       .subscribe(
         _ => {
           if (objectId) {
             let index = 0;
-            let len = this.announcements.length;
-            for (let i: number = 0; i < len; i++) {
-              if (this.announcements[i].title == objectId) {
+            const len = this.announcements.length;
+            for (let i = 0; i < len; i++) {
+              if (this.announcements[i].title === objectId) {
                 index = i;
               }
             }
             this.announcements.splice(index, 1);
           }
-
         }
       );
-
   }
 
-  updateAnnouncement(announcement: Announcement) {
+  updateAnnouncement(announcement: Announcement): void {
 
     this.announcementServices.updateAnnouncements(announcement)
       .subscribe(
         _ => {
           if (announcement) {
             let index = 0;
-            let len = this.announcements.length;
-            for (let i: number = 0; i < len; i++) {
-              if (this.announcements[i]._id == announcement._id) {
+            const len = this.announcements.length;
+            for (let i = 0; i < len; i++) {
+              if (this.announcements[i]._id === announcement._id) {
                 index = i;
 
               }
@@ -139,43 +138,34 @@ export class AnnouncementComponent implements OnInit {
             this.announcements[index] = announcement;
             this.announcementAux = new Announcement();
           }
-
         }
       );
   }
 
-  getSendUserEmail(announcement: Announcement) {
+  getSendUserEmail(announcement: Announcement): void {
     this.userService.getEmailUser()
       .subscribe(
-        userArrow => {
+        (userArrow: any) => {
           this.usersAux = userArrow;
-          console.log(this.usersAux)
+
           for (let i = 0; i < this.usersAux.length; i++) {
             this.sendEmail(this.usersAux[i].email, announcement);
           }
         }
-
       );
-
   }
-  // montar a mensagem de email 
+  // montar a mensagem de email
 
-  sendEmail(destinatary: String, announcement: Announcement): any {
-    console.log(destinatary)
-
-    let subject: String = "Editais novos foram cadastrados, a Te-orienta separou alguns que pode ser do seu interesse";
-    let message: String = "Edital: " + announcement.title + "\n" +
-      "Categoria: " + announcement.category + "\n" +
-      "Data de Submissão: " + announcement.dateSubmission + "\n";
-    let to: String = destinatary;
+  sendEmail(destinatary: string, announcement: Announcement): any {
+    const subject = 'Editais novos foram cadastrados, a Te-orienta separou alguns que pode ser do seu interesse';
+    const message = 'Edital: ' + announcement.title + '\n' +
+      'Categoria: ' + announcement.category + '\n' +
+      'Data de Submissão: ' + announcement.dateSubmission + '\n';
+    const to: string = destinatary;
     const email: Email = new Email(to, subject, message);
 
     this.emailService.postEmail(email)
       .subscribe();
 
   }
-
-
-
 }
-

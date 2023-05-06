@@ -1,33 +1,34 @@
-export class Announcement{
-    _id:Number;
-    title: String;
-    objective: String;
+export class Announcement {
+    _id: number;
+    title: string;
+    objective: string;
     fomentation: number;
-    category: String;
-    dateSubmission: String;
-    cnpj: Boolean;
-    cpf: Boolean;
-    urlDocument: String;
+    category: string;
+    dateSubmission: string;
+    cnpj: boolean;
+    cpf: boolean;
+    urlDocument: string;
     available: boolean;
-    question: String;
+    question: string;
 
-    constructor () {
+    constructor() {
         this.clean();
     }
 
-    clean(){
-        this.title = "";
-        this.objective = "";
+    clean(): void {
+        this.title = '';
+        this.objective = '';
         this.fomentation = 0;
-        this.category = "";
-        this.dateSubmission = "";
+        this.category = '';
+        this.dateSubmission = '';
         this.cnpj = false;
         this.cpf = false;
-        this.urlDocument = "";
+        this.urlDocument = '';
         this.available = false;
-        this.question = "";
+        this.question = '';
     }
-    copyAnnouncement(announcement: Announcement){
+
+    copyAnnouncement(announcement: Announcement): void {
         this._id = announcement._id;
         this.title = announcement.title;
         this.objective = announcement.objective;
@@ -37,7 +38,7 @@ export class Announcement{
         this.cnpj = announcement.cnpj;
         this.cpf = announcement.cpf;
         this.urlDocument = announcement.urlDocument;
-        this.available  = announcement.available;
+        this.available = announcement.available;
         this.question = announcement.question;
     }
 }

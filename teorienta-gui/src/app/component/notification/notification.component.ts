@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Notification} from '../../common/notification';
-import {NotificationService} from '../../services/notification/notification.service';
+import { Notification } from '../../common/notification';
+import { NotificationService } from '../../services/notification/notification.service';
 
 @Component({
   selector: 'app-notification',
@@ -10,7 +10,7 @@ import {NotificationService} from '../../services/notification/notification.serv
 export class NotificationComponent implements OnInit {
 
   notification: Notification = new Notification();
-  notifications: Notification [] = [];
+  notifications: Notification[] = [];
 
 
   constructor(private notificationService: NotificationService) { }
@@ -18,14 +18,14 @@ export class NotificationComponent implements OnInit {
   ngOnInit(): void {
     this.notificationService.getNotification()
       .subscribe(
-        noti => { this.notifications = noti}
+        noti => { this.notifications = noti; }
       );
   }
 
-  storeDataLocal(notification:any){
+  storeDataLocal(notification: any): void {
     const objectId = notification.titleAnnouncement;
-    const n = new Notification()
-    let notify = {
+    const n = new Notification();
+    const notify = {
       titleAnnouncement: notification.titleAnnouncement,
       objectiveAnnouncement: notification.objectiveAnnouncement,
       fomentationAnnouncement: notification.fomentationAnnouncement,
@@ -35,15 +35,13 @@ export class NotificationComponent implements OnInit {
       cpfAnnouncement: notification.cpfAnnouncement,
       urlDocumentAnnouncement: notification.urlDocumentAnnouncement,
       availableAnnouncement: notification.availableAnnouncement,
-    
+
       nameUser: notification.nameUser,
       emailUser: notification.emailUser,
       cpfUser: notification.cpfUser,
       cnpjUser: notification.cnpjUser,
       usernameUser: notification.usernameUser
-    }
-    
-    localStorage.setItem('objectId',objectId);
+    };
+    localStorage.setItem('objectId', objectId);
   }
-
 }

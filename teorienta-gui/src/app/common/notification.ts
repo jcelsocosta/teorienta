@@ -1,44 +1,43 @@
 export class Notification {
-    idAnnouncement: Number;
-    titleAnnouncement: String;
-    objectiveAnnouncement: String;
-    fomentationAnnouncement: Number;
-    categoryAnnouncement: String;
-    dateSubmissionAnnouncement: String;
-    cnpjAnnouncement: Boolean;
-    cpfAnnouncement: Boolean;
-    urlDocumentAnnouncement: String;
+    idAnnouncement: number;
+    titleAnnouncement: string;
+    objectiveAnnouncement: string;
+    fomentationAnnouncement: number;
+    categoryAnnouncement: string;
+    dateSubmissionAnnouncement: string;
+    cnpjAnnouncement: boolean;
+    cpfAnnouncement: boolean;
+    urlDocumentAnnouncement: string;
     availableAnnouncement: boolean;
-    nameUser: String;
-    emailUser: String;
-    cpfUser: Boolean;
-    cnpjUser: Boolean;
-    usernameUser: String;
+    nameUser: string;
+    emailUser: string;
+    cpfUser: boolean;
+    cnpjUser: boolean;
+    usernameUser: string;
 
     constructor() {
         this.clean();
     }
 
-    clean() {
+    clean(): void {
         this.idAnnouncement = 0;
-        this.titleAnnouncement = "";
-        this.objectiveAnnouncement = "";
+        this.titleAnnouncement = '';
+        this.objectiveAnnouncement = '';
         this.fomentationAnnouncement = 0;
-        this.categoryAnnouncement = "";
-        this.dateSubmissionAnnouncement = "";
+        this.categoryAnnouncement = '';
+        this.dateSubmissionAnnouncement = '';
         this.cnpjAnnouncement = false;
         this.cpfAnnouncement = false;
-        this.urlDocumentAnnouncement = "";
+        this.urlDocumentAnnouncement = '';
         this.availableAnnouncement = false;
-        this.nameUser = "";
-        this.emailUser = "";
+        this.nameUser = '';
+        this.emailUser = '';
         this.cpfUser = false;
         this.cnpjUser = false;
-        this.usernameUser = "";
-
+        this.usernameUser = '';
     }
 
-    copyFrom(notification: Notification) {
+    copyFrom(notification: Notification): void {
         this.idAnnouncement = notification.idAnnouncement;
         this.titleAnnouncement = notification.titleAnnouncement;
         this.objectiveAnnouncement = notification.objectiveAnnouncement;

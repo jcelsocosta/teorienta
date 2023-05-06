@@ -1,0 +1,39 @@
+version: '3'
+
+networks:
+  common_network:
+
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - pgdata:/var/lib/mongodb/data
+    networks:
+      - common_network
+
+  teorienta-server:
+    build:
+      context: ./teorienta-server
+      dockerfile: Dockerfile
+    depends_on:
+      - mongodb
+    ports:
+      - 3000:3000
+    environment:
+      - database=mongodb://mongodb:27017/te_orienta
+    networks:
+      - common_network
+
+  teorienta-gui:
+    build:
+      context: ./teorienta-gui
+      dockerfile: Dockerfile
+    ports:
+      - 4200:4200
+    networks:
+      - common_network
+
+volumes:
+  pgdata:

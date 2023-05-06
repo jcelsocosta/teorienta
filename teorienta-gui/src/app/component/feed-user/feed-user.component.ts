@@ -12,27 +12,29 @@ import { UserService } from '../../services/user/user.service';
   styleUrls: ['./feed-user.component.css']
 })
 export class FeedUserComponent implements OnInit {
-  user:Array<any>;
- 
+  user: Array<any>;
+  private userService: UserService;
   userAux: User = new User();
   usersAux: User[] = [];
 
 
-  constructor(private userService: UserService){}
-   
+  constructor(userService: UserService) {
+    this.userService = userService;
+  }
+
   ngOnInit(): void {
     this.printUsuarios();
     this.getUserEmail();
   }
 
- async printUsuarios(){
+  async printUsuarios(): Promise<any> {
     const response = await axios({
-      method: "POST",
-      url: "http://localhost:3000/users/getUsers",
+      method: 'POST',
+      url: 'http://localhost:3000/users/getUsers',
       data: {}
-    })
+    });
 
-    this.user = response.data.user.map((element)=>{
+    this.user = response.data.user.map((element: any) => {
       return {
         name: element.name,
         email: element.email,
@@ -41,16 +43,15 @@ export class FeedUserComponent implements OnInit {
         cpf: element.cpf,
         password: element.passowrd,
         userType: element.userType
-      }
-    })
+      };
+    });
   }
 
-  getUserEmail(){
-   
+  getUserEmail(): void {
+
     this.userService.getEmailUser()
       .subscribe(
-        userArrow => { this.usersAux = userArrow  } 
+        (userArrow: any) => { this.usersAux = userArrow; }
       );
-    
   }
 }
