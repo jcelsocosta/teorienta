@@ -18,7 +18,7 @@ Regras de negócios:
 - Ao cliente é exibida uma linha de tempo desde o momento em que ele se inscreve em um edital até o momento em que o edital está pronto para a submissão.
 - Quando o edital estiver pronto para a submissão, o cliente receberá uma notificação pelo email e poderá acessar o documento pronto tanto pelo email quanto pela plataforma
 
-Projeto desenvolvido em dupla com Adson Ramos
+Projeto desenvolvido em dupla com Adson Ramos (https://github.com/AdsonRamos)
 
 ## Inicializando o projeto
 
