@@ -6,7 +6,7 @@ import { createSchedule } from '../controller/schedule'
 
 
 
-router.post('/createSchedule', async (req,res) => {
+router.post('/schedule/createSchedule', async (req,res) => {
     
     let hour = req.body.hour;
     let day = req.body.day;

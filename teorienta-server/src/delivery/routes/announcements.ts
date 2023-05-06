@@ -8,7 +8,7 @@ import { updateAnnouncements } from '../../provider/infrastructure/database/mong
 import announcement from '../../provider/infrastructure/database/mongo/models/announcement';
 
 
-router.post('/createAnnouncement',async(req: express.Request,res: express.Response)=>{
+router.post('/announcements/createAnnouncement',async(req: express.Request,res: express.Response)=>{
     let newAnnouncement = new Announcement({
         title: req.body.title,
         objective: req.body.objective ,
@@ -26,25 +26,25 @@ router.post('/createAnnouncement',async(req: express.Request,res: express.Respon
     res.send(response) 
 })
 
-router.get("/announcements", async(req: express.Request,res:express.Response) =>{
+router.get("/announcements/announcements", async(req: express.Request,res:express.Response) =>{
     const response = await listAnnouncements();
     res.send(response);
 })
 
-router.get("/oneAnnouncements/:objectId", async(req: express.Request, res: express.Response)=>{
+router.get("/announcements/oneAnnouncements/:objectId", async(req: express.Request, res: express.Response)=>{
     let {objectId} = req.params;
     const response = await listOneAnnouncements(objectId);
     res.send(response);
 
 })
 
-router.delete("/delete/:objectId", async(req: express.Request, res: express.Response)=>{
+router.delete("/announcements/delete/:objectId", async(req: express.Request, res: express.Response)=>{
     let {objectId} = req.params;
     const reponse = await deleteAnnouncements(objectId);
     res.send(reponse);
 })
 
-router.put("/update", async(req:express.Request, res: express.Response)=>{
+router.put("/announcements/update", async(req:express.Request, res: express.Response)=>{
     let newAnnouncement = new Announcement({
         _id: req.body._id,
         title: req.body.title,

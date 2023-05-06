@@ -6,7 +6,7 @@ import {createNotification,deleteNotification,listNotification,listOneNotificati
 
 import Notification from '../../provider/infrastructure/database/mongo/models/notification';
 
-router.post('/createNotification', async(req: express.Request, res:express.Response) => {
+router.post('/notification/createNotification', async(req: express.Request, res:express.Response) => {
        
     let newNotification = new Notification({
         idAnnouncement:req.body.idAnnouncement,
@@ -30,17 +30,17 @@ router.post('/createNotification', async(req: express.Request, res:express.Respo
     res.send(response);
 })
 
-router.get('/notification',async(req: express.Request, res: express.Response)=>{
+router.get('/notification/notification',async(req: express.Request, res: express.Response)=>{
     const response = await listNotification();
     res.send(response);
 })
-router.get('/oneNotification/:objectId', async(req: express.Request, res: express.Response)=>{
+router.get('/notification/oneNotification/:objectId', async(req: express.Request, res: express.Response)=>{
     let {objectId} = req.params
     const response = await listOneNotification(objectId);
     res.send(response);
 
 })
-router.delete('/delete/:objectId', async(req: express.Request, res: express.Response)=>{
+router.delete('/notification/delete/:objectId', async(req: express.Request, res: express.Response)=>{
     let {objectId} = req.params;
     const response = await deleteNotification(objectId);
     res.send(response);

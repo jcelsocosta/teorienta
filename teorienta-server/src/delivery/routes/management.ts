@@ -3,7 +3,7 @@ const router = express.Router()
 import { createManagement } from '../controller/management'
 
 
-router.post('/createManagement', async (req, res) => {
+router.post('/management/createManagement', async (req, res) => {
     const cpf = req.body.cpf
     const name = req.body.name
     const email = req.body.email

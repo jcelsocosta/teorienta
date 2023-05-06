@@ -5,7 +5,7 @@ export const router = express.Router();
 
 
 
-router.post('/sendEmail', async(req,res)=>{
+router.post('/email//sendEmail', async(req,res)=>{
     const message = Object.assign( {} , req.body);
     
     Mail.to = message.to;
