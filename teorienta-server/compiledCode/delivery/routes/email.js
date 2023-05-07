@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mail_1 = __importDefault(require("../../services/email/mail"));
 exports.router = express_1.default.Router();
-exports.router.post('/sendEmail', (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.router.post('/email//sendEmail', (req, res) => __awaiter(this, void 0, void 0, function* () {
     const message = Object.assign({}, req.body);
     mail_1.default.to = message.to;
     mail_1.default.subject = message.subject;

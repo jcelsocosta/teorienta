@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 const management_1 = require("../controller/management");
-router.post('/createManagement', (req, res) => __awaiter(this, void 0, void 0, function* () {
+router.post('/management/createManagement', (req, res) => __awaiter(this, void 0, void 0, function* () {
     const cpf = req.body.cpf;
     const name = req.body.name;
     const email = req.body.email;

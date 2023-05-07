@@ -60,15 +60,16 @@ export class AuthService {
     this.authToken = token;
   }
 
-  isUserAdmin(): any {
+  isUserAdmin(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
+
     if (user) {
-      return user.userType === 1;
+      return parseInt(user.userType, 10) === 1;
     }
     return false;
   }
 
-  loggedIn(): any {
+  loggedIn(): boolean {
     const helper = new JwtHelperService();
     const token = localStorage.getItem('id_token');
     return !helper.isTokenExpired(token);

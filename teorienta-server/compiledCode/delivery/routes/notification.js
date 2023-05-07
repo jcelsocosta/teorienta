@@ -15,7 +15,7 @@ const express_1 = __importDefault(require("express"));
 exports.router = express_1.default.Router();
 const notification_1 = require("../controller/notification");
 const notification_2 = __importDefault(require("../../provider/infrastructure/database/mongo/models/notification"));
-exports.router.post('/createNotification', (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.router.post('/notification/createNotification', (req, res) => __awaiter(this, void 0, void 0, function* () {
     let newNotification = new notification_2.default({
         idAnnouncement: req.body.idAnnouncement,
         titleAnnouncement: req.body.titleAnnouncement,
@@ -36,16 +36,16 @@ exports.router.post('/createNotification', (req, res) => __awaiter(this, void 0,
     const response = yield notification_1.createNotification(newNotification);
     res.send(response);
 }));
-exports.router.get('/notification', (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.router.get('/notification/notification', (req, res) => __awaiter(this, void 0, void 0, function* () {
     const response = yield notification_1.listNotification();
     res.send(response);
 }));
-exports.router.get('/oneNotification/:objectId', (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.router.get('/notification/oneNotification/:objectId', (req, res) => __awaiter(this, void 0, void 0, function* () {
     let { objectId } = req.params;
     const response = yield notification_1.listOneNotification(objectId);
     res.send(response);
 }));
-exports.router.delete('/delete/:objectId', (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.router.delete('/notification/delete/:objectId', (req, res) => __awaiter(this, void 0, void 0, function* () {
     let { objectId } = req.params;
     const response = yield notification_1.deleteNotification(objectId);
     res.send(response);

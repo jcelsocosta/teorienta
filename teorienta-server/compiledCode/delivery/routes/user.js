@@ -16,30 +16,31 @@ const router = express_1.default.Router();
 const passport_1 = __importDefault(require("passport"));
 const user_1 = require("../controller/user");
 // addUser
-router.post('/register', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+router.post('/users/register', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
     const user = req.body.user;
     const response = yield user_1.createUser(user);
     res.send(response);
 }));
 //Authenticate
-router.post('/authenticate', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+router.post('/users/authenticate', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
     const username = req.body.username;
     const password = req.body.password;
     const response = yield user_1.authenticateUser({ username, password });
+    console.log('RESPONSE auth', response);
     res.send(response);
 }));
 //get Usuarios
-router.post('/getUsers', (req, res) => __awaiter(this, void 0, void 0, function* () {
+router.post('/users/getUsers', (req, res) => __awaiter(this, void 0, void 0, function* () {
     const response = yield user_1.listUser();
     res.send(response);
 }));
 //get email user
-router.get('/listUserEmail', (req, res) => __awaiter(this, void 0, void 0, function* () {
+router.get('/users/listUserEmail', (req, res) => __awaiter(this, void 0, void 0, function* () {
     const response = yield user_1.listUserEmail();
     res.send(response);
 }));
 //Profile
-router.get('/profile', passport_1.default.authenticate('jwt', { session: false }), (req, res, next) => {
+router.get('/users/profile', passport_1.default.authenticate('jwt', { session: false }), (req, res, next) => {
     res.json({ user: req.body.user });
 });
 exports.default = router;

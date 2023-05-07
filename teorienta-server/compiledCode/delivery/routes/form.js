@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 const form_1 = require("../controller/form");
-router.post("/createForm", (req, res) => __awaiter(this, void 0, void 0, function* () {
+router.post("/form/createForm", (req, res) => __awaiter(this, void 0, void 0, function* () {
     const question = req.body.question;
     const answer = req.body.answer;
     res.send(yield form_1.createForm({ question, answer }));

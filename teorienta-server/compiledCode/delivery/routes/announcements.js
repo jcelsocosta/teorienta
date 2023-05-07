@@ -16,7 +16,7 @@ exports.router = express_1.default.Router();
 const announcement_1 = require("../controller/announcement");
 const announcement_2 = __importDefault(require("../../provider/infrastructure/database/mongo/models/announcement"));
 const announcement_3 = require("../../provider/infrastructure/database/mongo/announcement");
-exports.router.post('/createAnnouncement', (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.router.post('/announcements/createAnnouncement', (req, res) => __awaiter(this, void 0, void 0, function* () {
     let newAnnouncement = new announcement_2.default({
         title: req.body.title,
         objective: req.body.objective,
@@ -32,21 +32,21 @@ exports.router.post('/createAnnouncement', (req, res) => __awaiter(this, void 0,
     const response = yield announcement_1.createAnnouncement(newAnnouncement);
     res.send(response);
 }));
-exports.router.get("/announcements", (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.router.get("/announcements/announcements", (req, res) => __awaiter(this, void 0, void 0, function* () {
     const response = yield announcement_1.listAnnouncements();
     res.send(response);
 }));
-exports.router.get("/oneAnnouncements/:objectId", (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.router.get("/announcements/oneAnnouncements/:objectId", (req, res) => __awaiter(this, void 0, void 0, function* () {
     let { objectId } = req.params;
     const response = yield announcement_1.listOneAnnouncements(objectId);
     res.send(response);
 }));
-exports.router.delete("/delete/:objectId", (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.router.delete("/announcements/delete/:objectId", (req, res) => __awaiter(this, void 0, void 0, function* () {
     let { objectId } = req.params;
     const reponse = yield announcement_1.deleteAnnouncements(objectId);
     res.send(reponse);
 }));
-exports.router.put("/update", (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.router.put("/announcements/update", (req, res) => __awaiter(this, void 0, void 0, function* () {
     let newAnnouncement = new announcement_2.default({
         _id: req.body._id,
         title: req.body.title,

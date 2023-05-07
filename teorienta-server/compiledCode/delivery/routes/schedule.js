@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 exports.router = express_1.default.Router();
 const schedule_1 = require("../controller/schedule");
-exports.router.post('/createSchedule', (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.router.post('/schedule/createSchedule', (req, res) => __awaiter(this, void 0, void 0, function* () {
     let hour = req.body.hour;
     let day = req.body.day;
     let month = req.body.month;

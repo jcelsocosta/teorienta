@@ -9,7 +9,7 @@ class Mail {
 
       sendEmail(){
         let mailOptions = {
-            from: "teorienta422@gmail.com",
+            from: "",
             to: this.to,
             subject: this.subject,
             html: this.message
